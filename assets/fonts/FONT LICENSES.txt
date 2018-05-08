@@ -1,0 +1,5 @@
+The fonts Cadadea and Open Sans are licensed under Apache 2.0.
+A copy of the Apache 2.0 License is included to comply with its
+terms of use.
+
+The font Arya is licensed under the SIL Open Font License.
