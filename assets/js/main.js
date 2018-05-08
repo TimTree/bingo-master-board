@@ -84,7 +84,7 @@ function titleSlider() {
 
 		var titleBingo = titleSlide.addChild(new BaseText("B I N G O", "bold 135px 'Arya'", "#ce181e", "center"));
 		var titleMasterBoard = titleSlide.addChild(new BaseText("Master Board", "italic 66px caladea", "#948a54", "center"));
-		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-05-07 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
+		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-05-08 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
 		
 		titleCopyright.y = 694;	
 		titleCopyright.createLink(function(){transitionOut(titleSlide);copyrightSlider();});
@@ -161,10 +161,20 @@ function howToUseSlider() {
 		allContainer.addChild(howToUseSlide);
 		var copyrightSlideHeader = howToUseSlide.addChild(new BaseText("How to Use", "36px Open Sans", "#000", "center"));
 		copyrightSlideHeader.y = 60;
-		var tempCopyrightInfo = howToUseSlide.addChild(new BaseText("Bingo Master Board is under construction.", "30px Open Sans", "#000", "center"));
+		var tempCopyrightInfo = howToUseSlide.addChild(new BaseText("Bingo Master Board lets you host your own Bingo games.", "30px Open Sans", "#000", "center"));
 		tempCopyrightInfo.y = 200;
-		var tempCopyrightInfo2 = howToUseSlide.addChild(new BaseText("How to use instructions are not yet available.", "30px Open Sans", "#000", "center"));
+		var tempCopyrightInfo2 = howToUseSlide.addChild(new BaseText("Randomly draw Bingo balls by clicking Draw Ball or pressing the space bar.", "30px Open Sans", "#000", "center"));
 		tempCopyrightInfo2.y = 250;
+		var tempCopyrightInfo3 = howToUseSlide.addChild(new BaseText("You can also manually select Bingo balls by clicking on them.", "30px Open Sans", "#000", "center"));
+		tempCopyrightInfo3.y = 300;
+		var tempCopyrightInfo4 = howToUseSlide.addChild(new BaseText("Clear the master board by clicking Reset or pressing the r key.", "30px Open Sans", "#000", "center"));
+		tempCopyrightInfo4.y = 350;
+		var tempCopyrightInfo7 = howToUseSlide.addChild(new BaseText("Add ?masterboard to the end of the URL to instantly load the master board.", "30px Open Sans", "#000", "center"));
+		tempCopyrightInfo7.y = 400;
+		var tempCopyrightInfo5 = howToUseSlide.addChild(new BaseText("Bingo Master Board is not yet finished.", "30px Open Sans", "#000", "center"));
+		tempCopyrightInfo5.y = 500;
+		var tempCopyrightInfo6 = howToUseSlide.addChild(new BaseText("More features and better instructions will arrive in future updates.", "30px Open Sans", "#000", "center"));
+		tempCopyrightInfo6.y = 550;
 		var mainMenu = howToUseSlide.addChild(new BaseText("Main Menu", "30px Open Sans", "#376092", "center"));
 		mainMenu.y = 690;
 		mainMenu.createLink(function(){transitionOut(howToUseSlide);titleSlider();}, "#4297b7");
