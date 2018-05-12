@@ -3,9 +3,9 @@ var fullScreenToggle;
 
 // [B, I, N, G, O]
 var lineColor = ["rgb(228,108,10)", "rgb(119,147,60)", "rgb(49,133,156)", "rgb(96,74,123)", "rgb(149,55,53)"];
-var ballGradientLightColor = ["rgba(247, 182, 128,0.8)", "rgba(176, 204, 120,0.8)", "rgba(108, 201, 226,0.8)", "rgba(189, 158, 229,0.8)", "rgba(252, 131, 128,0.8)"];
-var ballGradientDarkColor = ["rgba(228,108,10,0.8)", "rgba(135, 170, 63,0.8)", "rgba(84, 165, 188,0.8)", "rgba(151, 122, 186,0.8)", "rgba(216, 96, 93,0.8)"];
-var ballTextColor = ["#7f3c06", "#4f6228", "#215968", "#403152", "#632523"];
+var ballGradientLightColor = ["rgba(247, 182, 128,0.8)", "rgba(176, 204, 120,0.8)", "rgba(108, 201, 226,0.8)", "rgba(195, 164, 234,0.8)", "rgba(255, 138, 135,0.8)"];
+var ballGradientDarkColor = ["rgba(228,108,10,0.8)", "rgba(135, 170, 63,0.8)", "rgba(84, 165, 188,0.8)", "rgba(159, 129, 193,0.8)", "rgba(221, 98, 95,0.8)"];
+var ballTextColor = ["#6b3205", "#3e4f1f", "#194551", "#352944", "#5e2221"];
 var isFullScreen = false;
 
 var themeColor = "#d1cc85";
@@ -84,7 +84,7 @@ function titleSlider() {
 
 		var titleBingo = titleSlide.addChild(new BaseText("B I N G O", "bold 135px 'Arya'", "#ce181e", "center"));
 		var titleMasterBoard = titleSlide.addChild(new BaseText("Master Board", "italic 66px caladea", "#948a54", "center"));
-		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-05-08 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
+		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-05-12 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
 		
 		titleCopyright.y = 694;	
 		titleCopyright.createLink(function(){transitionOut(titleSlide);copyrightSlider();});
