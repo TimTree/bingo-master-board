@@ -10,7 +10,7 @@ var isFullScreen = false;
 
 var themeColor = "#d1cc85";
 
-function loadCSS() {		
+function loadCSS() {
 	loadFonts({
 		src: fonts,
 		type: "fontcss"
@@ -43,7 +43,7 @@ function beginLoad() {
 		fullScreenUp.scale = 0.6;
 		fullScreenUp.x = 1225;
 		fullScreenUp.y = 20;
-		
+
 		var fullScreenClicker = new createjs.Shape();
 		fullScreenClicker.graphics.beginFill("rgba(191,191,191)");
 		fullScreenClicker.graphics.drawRect(0,0,10,10);
@@ -62,11 +62,11 @@ function beginLoad() {
 		fullScreenToggle.alpha = 0;
 	createjs.Tween.get(fullScreenToggle)
 		.to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2));
-	
+
 	var param = location.search;
-	
+
 	if (param == "?masterboard") {
-		masterBoardSlider();	
+		masterBoardSlider();
 	} else {
 	titleSlider();
 	}
@@ -84,9 +84,9 @@ function titleSlider() {
 
 		var titleBingo = titleSlide.addChild(new BaseText("B I N G O", "bold 135px 'Arya'", "#ce181e", "center"));
 		var titleMasterBoard = titleSlide.addChild(new BaseText("Master Board", "italic 66px caladea", "#948a54", "center"));
-		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-05-12 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
-		
-		titleCopyright.y = 694;	
+		var titleCopyright = titleSlide.addChild(new BaseText("Version Web WIP 2018-07-16 ~ ©2011-2018 Tim's Slideshow Games", "13.5px Arial", "#000", "center"));
+
+		titleCopyright.y = 694;
 		titleCopyright.createLink(function(){transitionOut(titleSlide);copyrightSlider();});
 		titleBingo.y = 230;
 		titleMasterBoard.y = 325;
@@ -133,7 +133,7 @@ function copyrightSlider() {
 		tempCopyrightInfo2.y = 250;
 		var tempCopyrightInfo3 = copyrightSlide.addChild(new BaseText("More info will appear in future updates.", "30px Open Sans", "#000", "center"));
 		tempCopyrightInfo3.y = 300;
-		
+
 		var mainMenu = copyrightSlide.addChild(new BaseText("Main Menu", "30px Open Sans", "#376092", "center"));
 		mainMenu.y = 690;
 		mainMenu.createLink(function(){transitionOut(copyrightSlide);titleSlider();}, "#4297b7");
@@ -149,7 +149,7 @@ function copyrightSlider() {
 		transitionIn(copyrightSlide);
 	}
 
-	copyrightSlide.alpha = 0;		
+	copyrightSlide.alpha = 0;
 	createjs.Tween.get(copyrightSlide)
   .to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2))
 }
@@ -189,7 +189,7 @@ function howToUseSlider() {
 		transitionIn(howToUseSlide);
 	}
 
-	howToUseSlide.alpha = 0;		
+	howToUseSlide.alpha = 0;
 	createjs.Tween.get(howToUseSlide)
   .to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2))
 
@@ -254,7 +254,7 @@ function masterBoardSlider() {
 		if (i>=1&&i<=15) {
 			var bingoBoardBall = bingoB.addChild(new BingoBall(i));
 			bingoBoardBall.y = 71*(Math.round(i/2)-1);
-			evenOddCycle=0;	
+			evenOddCycle=0;
 		} else if (i>=16&&i<=30) {
 			var bingoBoardBall = bingoI.addChild(new BingoBall(i));
 			bingoBoardBall.y = 71*(Math.floor(i/2)-8);
@@ -272,7 +272,7 @@ function masterBoardSlider() {
 			bingoBoardBall.y = 71*(Math.round(i/2)-31);
 			evenOddCycle=0;
 		}
-		
+
 		bingoBoardBall.name = i;
 		bingoBoardBall.id = "off";
 
@@ -329,8 +329,8 @@ function masterBoardSlider() {
 		bigBingoBall.x = 128;
 		bigBingoBall.y = 480;
 		masterBoardSlide.addChild(bigBingoBall);
-		
-		
+
+
 		var drawBall = new createjs.Container();
 		var drawBallShape = new createjs.Shape();
 		drawBallShape.graphics.setStrokeStyle(2, 'round', 'round');
@@ -346,7 +346,7 @@ function masterBoardSlider() {
 		drawBallText.y = 39;
 		drawBall.addChild(drawBallShape,drawBallText);
 		masterBoardSlide.addChild(drawBall);
-		
+
 		drawBall.on("mouseover", function(){drawBallShape.graphics.clear().setStrokeStyle(2, 'round', 'round').beginStroke("rgb(94,87,52)").beginFill("rgba(155, 145, 90, 0.8)").moveTo(25, 0).lineTo(130, 0).lineTo(155, 45).lineTo(130,90).lineTo(25,90).lineTo(0,45).lineTo(25, 0);});
 		drawBall.on("mouseout", function(){drawBallShape.graphics.clear().setStrokeStyle(2, 'round', 'round').beginStroke("rgb(94,87,52)").beginLinearGradientFill(["rgba(164,152,92,0.8)","rgba(183,174,127,0.8)"], [0, 1], 0, 0, 155, 90).moveTo(25, 0).lineTo(130, 0).lineTo(155, 45).lineTo(130,90).lineTo(25,90).lineTo(0,45).lineTo(25, 0);});
 		drawBall.on("click", randomDraw);
@@ -354,11 +354,11 @@ function masterBoardSlider() {
 		drawBall.name = "drawBall";
 		drawBall.x = 50.5;
 		drawBall.y = 255;
-		
-		
+
+
 		var resetButton = masterBoardSlide.addChild(new MiniTextButton("Reset", "rgba(255,0,0,0.25)",resetBoard));
 		var themesButton = masterBoardSlide.addChild(new MiniTextButton("Themes", "rgba(80,80,80,0.25)",function(){transitionOut(masterBoardSlide);themesSlider();}));
-		
+
 		resetButton.y = 12;
 		resetButton.x = 28;
 		themesButton.y = 12;
@@ -375,7 +375,7 @@ function masterBoardSlider() {
 
 
 	document.getElementById("mainCanvas").style.background = themeColor;
-	masterBoardSlide.alpha = 0;		
+	masterBoardSlide.alpha = 0;
 	createjs.Tween.get(masterBoardSlide)
   .to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2))
 
@@ -393,8 +393,8 @@ function themesSlider() {
 		allContainer.addChild(themesSlide);
 		var themesSlideHeader = themesSlide.addChild(new BaseText("Themes", "36px Open Sans", "#000", "center"));
 		themesSlideHeader.y = 60;
-		
-		
+
+
 		var themesSelection1 = new createjs.Container();
 		themesSlide.addChild(themesSelection1);
 
@@ -421,11 +421,11 @@ function themesSlider() {
 		centerTextGroup(themesSelection1,themesSelection2);
 
 		themesSlide.addChild(themesSelection1,themesSelection2);
-		
+
 		var goBack = themesSlide.addChild(new BaseText("Go Back", "30px Open Sans", "#376092", "center"));
 		goBack.y = 690;
 		goBack.createLink(function(){transitionOut(themesSlide);masterBoardSlider();}, "#4297b7");
-		
+
 
 	}
 	else {
@@ -433,8 +433,8 @@ function themesSlider() {
 	}
 
 	document.getElementById("mainCanvas").style.background = "radial-gradient(#f7eaab, #bfbb73)";
-	
-	themesSlide.alpha = 0;		
+
+	themesSlide.alpha = 0;
 	createjs.Tween.get(themesSlide)
   .to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2))
 	document.onkeydown = function(e) {}
@@ -443,7 +443,7 @@ function themesSlider() {
 }
 
 function resetBoard() {
-	for (var i = 1; i<=75; i++) {		
+	for (var i = 1; i<=75; i++) {
 		if (i>=1&&i<=15) {
 			var bingoBallId = masterBoardSlide.getChildByName("allBingos").getChildByName("bingoB").getChildByName(i);
 			bingoBallId.getChildAt(1).font = "35px Open Sans";
@@ -480,80 +480,80 @@ function resetBoard() {
 	bigBingoBall.getChildAt(0).graphics.clear().setStrokeStyle(2.5, 'round', 'round').beginStroke("rgb(176,176,176)").beginFill("rgba(191,191,191,0.6)").drawCircle(0,0,93);
 	bigBingoBall.getChildAt(1).text = "";
 	bigBingoBall.getChildAt(2).text = "";
-	
+
 		masterBoardSlide.getChildByName("allBingos").alpha = 0;
 		createjs.Tween.get(masterBoardSlide.getChildByName("allBingos"))
   .to({ alpha: 1}, 300, createjs.Ease.getPowInOut(2))
-	
+
 }
 
 function randomDraw() {
 
 	var numberOfSlots = 0;
 	var numbersAvailable = [];
-	
+
 	for (var i = 1; i<=15;i++) {
 		if (masterBoardSlide.getChildByName("allBingos").getChildByName("bingoB").getChildByName(i).id=="off") {
 			numberOfSlots++;
 			numbersAvailable.push(i);
 		}
 	}
-	
+
 	for (var i = 16; i<=30;i++) {
 		if (masterBoardSlide.getChildByName("allBingos").getChildByName("bingoI").getChildByName(i).id=="off") {
 			numberOfSlots++;
 			numbersAvailable.push(i)
 		}
 	}
-	
+
 	for (var i = 31; i<=45;i++) {
 		if (masterBoardSlide.getChildByName("allBingos").getChildByName("bingoN").getChildByName(i).id=="off") {
 			numberOfSlots++;
 			numbersAvailable.push(i)
 		}
 	}
-	
+
 	for (var i = 46; i<=60;i++) {
 		if (masterBoardSlide.getChildByName("allBingos").getChildByName("bingoG").getChildByName(i).id=="off") {
 			numberOfSlots++;
 			numbersAvailable.push(i)
 		}
 	}
-	
+
 	for (var i = 61; i<=75;i++) {
 		if (masterBoardSlide.getChildByName("allBingos").getChildByName("bingoO").getChildByName(i).id=="off") {
 			numberOfSlots++;
 			numbersAvailable.push(i)
 		}
 	}
-	
+
 	if (numberOfSlots == 0) {
 		alert("That's all the Bingo balls!");
 		return;
 	}
-	
+
 	var theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
-	
+
 	if (theRandomNumber >=1 && theRandomNumber <= 15) {
 		masterBoardSlide.getChildByName("allBingos").getChildByName("bingoB").getChildByName(theRandomNumber).handleClick();
 	}
-	
+
 	if (theRandomNumber >=16 && theRandomNumber <= 30) {
 		masterBoardSlide.getChildByName("allBingos").getChildByName("bingoI").getChildByName(theRandomNumber).handleClick();
 	}
-	
+
 	if (theRandomNumber >=31 && theRandomNumber <= 45) {
 		masterBoardSlide.getChildByName("allBingos").getChildByName("bingoN").getChildByName(theRandomNumber).handleClick();
 	}
-	
+
 	if (theRandomNumber >=46 && theRandomNumber <= 60) {
 		masterBoardSlide.getChildByName("allBingos").getChildByName("bingoG").getChildByName(theRandomNumber).handleClick();
 	}
-	
+
 	if (theRandomNumber >=61 && theRandomNumber <= 75) {
 		masterBoardSlide.getChildByName("allBingos").getChildByName("bingoO").getChildByName(theRandomNumber).handleClick();
 	}
-	
+
 		createjs.Tween.get(masterBoardSlide.getChildByName("drawBall"))
 				.to({ scale: 0.9, x: 60, y:260,alpha:0.6}, 100, createjs.Ease.getPowInOut(2))
 				.to({ scale: 1, x: 50.5, y:255,alpha:1}, 100, createjs.Ease.getPowInOut(2))
