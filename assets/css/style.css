@@ -1,0 +1,302 @@
+@font-face {
+  font-family: 'Caladea';
+  src: url('../fonts/caladea-italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  }
+@font-face {
+  font-family: 'Arya';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arya Bold'), local('Arya-Bold'),
+     url('../fonts/arya-v3-latin-700.woff2') format('woff2'),
+     url('../fonts/arya-v3-latin-700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+     url('../fonts/open-sans-v15-latin-regular.woff2') format('woff2'),
+     url('../fonts/open-sans-v15-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+     url('../fonts/open-sans-v15-latin-italic.woff2') format('woff2'),
+     url('../fonts/open-sans-v15-latin-italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+     url('../fonts/open-sans-v15-latin-700.woff2') format('woff2'),
+     url('../fonts/open-sans-v15-latin-700.woff') format('woff');
+}
+
+html {
+  height:100%;
+  margin: 0;
+}
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;/
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  padding:0;
+  background: #000;
+  margin:0;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  width:100%;
+  font-family:"open sans";
+  overflow:hidden;
+}
+
+#area {
+  flex-shrink: 0;
+  background: radial-gradient(#f7eaab, #bfbb73);
+  height:720px;
+  width:1280px;
+  font-size:30px;
+  overflow:hidden;
+}
+
+#fader {
+  position:absolute;
+  z-index:999;
+  flex-shrink: 0;
+  background: radial-gradient(#f7eaab, #bfbb73);
+  height:720px;
+  width:1280px;
+  overflow:hidden;
+  transition:opacity 0.25s linear;
+  pointer-events: none;
+  opacity:1;
+}
+
+.notransition {
+  transition: none !important;
+}
+
+#title {
+  position:relative;
+  font-size:135px;
+  font-family:arya;
+  font-weight:700;
+  color:#ce181e;
+  text-align:center;
+  line-height:1.2;
+}
+
+#subheading {
+  line-height:1.2;
+  font-size:66px;
+  font-family:caladea;
+  font-style:italic;
+  color:#948a54;
+  text-align:center;
+  margin-bottom:1.3em;
+}
+
+#titleSelection {
+  font-size:50px;
+  color:#376092;
+  text-align:center;
+  margin-bottom:2.5em;
+}
+
+#a {
+  width: 400px;
+  height: 100px;
+  position:absolute;
+  bottom:600px;
+  left:0;
+}
+.first {
+  font-size: 60px;
+  background-color: #9BBCE3;
+}
+.first::after {
+  content: "";
+  height: 100%;
+  display: inline-block;
+}
+
+.flexCenter {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+
+#titleSlide {
+  height:100%;
+  background-image:url("../img/bingoRoller.svg");
+  background-size: contain;
+  background-repeat:no-repeat;
+}
+
+#howToUseSlide {
+  display:none;
+  height:100%;
+  grid-template-columns:100%;
+  grid-template-rows: 96px 44px 2px 1fr 77px;
+  grid-template-areas: "helpHeader"
+                "helpNav"
+                "helpLine"
+                "helpContent"
+                "helpFooter";;
+}
+
+#aboutCreditsSlide {
+  display:none;
+  height:100%;
+  grid-template-columns:100%;
+  grid-template-rows: 96px 44px 2px 1fr 77px;
+  grid-template-areas: "helpHeader"
+                "helpNav"
+                "helpLine"
+                "helpContent"
+                "helpFooter";;
+}
+
+h2 {
+  font-size:36px;
+  font-weight:300;
+  text-align:center;
+  margin:22px 0;
+  grid-area: helpHeader;
+}
+
+.helpNav {
+  grid-area: helpNav;
+  border-top:2px solid black;
+  text-align:center;
+  font-size:24px;
+  width:200px;
+  margin:0 auto;
+}
+
+.helpLine {
+  grid-area: helpLine;
+  border-top:2px solid #948a54;
+  width:1100px;
+  margin:0 auto;
+}
+
+.helpContent {
+  grid-area: helpContent;
+}
+
+.helpFooter {
+  grid-area: helpFooter;
+  text-align:center;
+}
+
+.helpFooterLabel {
+  display:inline-block;
+  cursor:pointer;
+  color:#376092;
+  transition:color 0.15s;
+  margin:0.5em 0;
+}
+
+.helpFooterLabel:hover {
+  color:#4297b7;
+}
+
+#howToUse, #goToMasterBoard {
+  display:inline-block;
+  margin: 0 0.7em;
+  cursor:pointer;
+  transition:color 0.15s;
+}
+
+#howToUse:hover, #goToMasterBoard:hover {
+  color:#4297b7;
+}
+
+#copyright {
+  text-align:center;
+  margin-top:-39px;
+  font-size:13.5px;
+  font-family:arial;
+}
+
+#copyrightLabel {
+  cursor:pointer;
+  color:#000;
+  transition:color 0.15s;
+}
+
+#copyrightLabel:hover {
+  color:#2d6073;
+}
+
+#fullScreenToggle {
+  display:none;
+  position:absolute;
+  right:25px;
+  top:20px;
+  transition: opacity 0.25s linear;
+}
+
+#fullScreenButton, #fullScreenButtonDown {
+  width:30px;
+  height:30px;
+  background-size: contain;
+  background-repeat:no-repeat;
+  cursor:pointer;
+}
+
+#fullScreenButton {
+  background-image:url("../img/fullscreenUp.svg");
+}
+
+#fullScreenButtonDown {
+  display:none;
+  background-image:url("../img/fullscreenDown.svg");
+}
+
+
+#fullScreenButton:hover {
+  background-image:url("../img/fullscreenUpHover.svg");
+}
+
+#fullScreenButtonDown:hover {
+  background-image:url("../img/fullscreenDownHover.svg");
+}
+
+#testShape {
+  position:absolute;
+  width:200px;
+  height:200px;
+  background:blue;
+  animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+z-index:1;
+}
+
+@keyframes example {
+0%   {background-color:red; left:0px; top:0px;transform:scale(1.0);}
+25%  {background-color:yellow; left:200px; top:0px;transform:scale(1.2);}
+50%  {background-color:blue; left:200px; top:200px;transform:scale(1.5);}
+75%  {background-color:green; left:0px; top:200px;transform:scale(1.2);}
+100% {background-color:red; left:0px; top:0px;transform:scale(1.0);}
+}
+
+.smallMargin {
+margin:0.5em 0;
+}

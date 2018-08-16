@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Bingo Master Board</title>
-		<meta charset="UTF-8">
-		<meta name="description" content="Host a Bingo game using your Web browser">
-		<meta name="author" content="Tim's Slideshow Games">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<link rel="shortcut icon" href="assets/img/favicon.ico" />
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-title" content="Bingo Board">
-		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/appIcon.png">
-		<meta name="apple-mobile-web-app-capable" content="yes">
+  <head>
+    <title>Bingo Master Board</title>
+  		<meta charset="UTF-8">
+  		<meta name="description" content="Host a Bingo game using your Web browser">
+  		<meta name="author" content="Tim's Slideshow Games">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  		<link rel="shortcut icon" href="assets/img/favicon.ico" />
+  		<meta name="format-detection" content="telephone=no">
+  		<meta name="apple-mobile-web-app-title" content="Bingo Board">
+  		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/appIcon.png">
+  		<meta name="apple-mobile-web-app-capable" content="yes">
 
-		<style id="fonts">
-			@font-face {
-				font-family: 'Caladea';
-				src: url('./assets/fonts/caladea-italic.ttf') format('truetype');
-				font-weight: normal;
-				font-style: italic;
-			  }
-			@font-face {
-			  font-family: 'Arya';
-			  font-style: normal;
-			  font-weight: 700;
-			  src: local('Arya Bold'), local('Arya-Bold'),
-				   url('./assets/fonts/arya-v3-latin-700.woff2') format('woff2'),
-				   url('./assets/fonts/arya-v3-latin-700.woff') format('woff');
-			}
-			@font-face {
-			  font-family: 'Open Sans';
-			  font-style: normal;
-			  font-weight: 400;
-			  src: local('Open Sans Regular'), local('OpenSans-Regular'),
-				   url('./assets/fonts/open-sans-v15-latin-regular.woff2') format('woff2'),
-				   url('./assets/fonts/open-sans-v15-latin-regular.woff') format('woff');
-			}
-			@font-face {
-			  font-family: 'Open Sans';
-			  font-style: italic;
-			  font-weight: 400;
-			  src: local('Open Sans Italic'), local('OpenSans-Italic'),
-				   url('./assets/fonts/open-sans-v15-latin-italic.woff2') format('woff2'),
-				   url('./assets/fonts/open-sans-v15-latin-italic.woff') format('woff');
-			}
-			@font-face {
-			  font-family: 'Open Sans';
-			  font-style: normal;
-			  font-weight: 700;
-			  src: local('Open Sans Bold'), local('OpenSans-Bold'),
-				   url('./assets/fonts/open-sans-v15-latin-700.woff2') format('woff2'),
-				   url('./assets/fonts/open-sans-v15-latin-700.woff') format('woff');
-			}
-		</style>
+      <link rel="stylesheet" href="./assets/css/style.css">
 
-		<style>
-		html {
-			margin:0;
-			padding:0;
-			height:100%;
-		}
-		body {
-			background-color:black;
-			height:100%;
-			margin:0;
-		}
-		canvas {
-			background: radial-gradient(#f7eaab, #bfbb73);
-		}
-		#main {
-			height:100%;
-			display:flex;
-			align-items:center;
-			justify-content:center;
-			text-align:center;
-		}
-		</style>
+  </head>
 
-		<script src="assets/js/createjs.min.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script src="assets/js/inheritance.js"></script>
+  <body onload="init();">
 
-	</head>
+    <!-- External layers -->
+    <div id="fader">
+    </div>
+    <!-- End -->
 
-	<body onload="init();">
-		<div id="main">
-			<noscript><h3 style="color:#fff;">Javascript is disabled. Please enable it to use Bingo Master Board.</h3></noscript>
-			<canvas id="mainCanvas" width="1280" height="720"></canvas>
-		</div>
-	</body>
+    <div id="area">
+
+      <div id="fullScreenToggle">
+        <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
+        <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
+      </div>
+
+      <div id="titleSlide">
+        <div class="flexCenter">
+          <div>
+            <div id="title">
+              B I N G O
+            </div>
+            <div id="subheading">
+              Master Board
+            </div>
+            <div id="titleSelection">
+              <div id="howToUse" onclick ="hide('titleSlide');show('howToUseSlide', 'grid');">How to Use</div>
+              <div id="goToMasterBoard">Master Board</div>
+            </div>
+          </div>
+        </div>
+        <div id="copyright">
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-15 ~ ©2011-2018 Tim's Slideshow Games</div>
+        </div>
+      </div>
+
+      <div id="howToUseSlide">
+        <h2>How to Use</h2>
+        <div class="helpNav">Main</div>
+        <div class="helpLine"></div>
+        <div class="helpContent">
+          <div class="flexCenter">
+            <div style="text-align:center;">
+              <p class="smallMargin">Bingo Master Board lets you host your own Bingo games.</p>
+              <p class="smallMargin">Randomly draw Bingo balls by clicking Draw Ball or pressing the space bar.</p>
+              <p class="smallMargin">You can also manually select Bingo balls by clicking on them.</p>
+              <p class="smallMargin">Clear the master board by clicking Reset or pressing the r key.</p>
+              <p class="smallMargin" style="margin-bottom:1.3em;">Add <em>?masterboard</em> to the end of the URL to instantly load the master board.</p>
+              <p class="smallMargin">Bingo Master Board is not yet finished.</p>
+              <p class="smallMargin">More features and better instructions will arrive in future updates.</p>
+            </div>
+          </div>
+        </div>
+        <div class="helpFooter">
+          <div class="helpFooterLabel" onclick="hide('howToUseSlide');show('titleSlide');">
+            Main Menu
+          </div>
+        </div>
+      </div>
+
+      <div id="aboutCreditsSlide">
+        <h2>About/Credits</h2>
+        <div class="helpNav">Main</div>
+        <div class="helpLine"></div>
+        <div class="helpContent">
+          <div class="flexCenter">
+            <div style="text-align:center;">
+              <p class="smallMargin">Creator: Timothy Hsu (Tim's Slideshow Games)</p>
+              <p class="smallMargin"><em>This version was not made with CreateJS.</em></p>
+              <p class="smallMargin">More info will appear in future updates.</p>
+            </div>
+          </div>
+        </div>
+        <div class="helpFooter">
+          <div class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
+            Main Menu
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+
+  </body>
 </html>
