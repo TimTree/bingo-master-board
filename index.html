@@ -25,7 +25,7 @@
 
     <div id="area">
 
-      <div id="fullScreenToggle">
+      <div class="fullScreenToggleBig" id="fullScreenToggle">
         <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
         <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
       </div>
@@ -41,12 +41,12 @@
             </div>
             <div id="titleSelection">
               <div id="howToUse" onclick ="hide('titleSlide');show('howToUseSlide', 'grid');">How to Use</div>
-              <div id="goToMasterBoard">Master Board</div>
+              <div id="goToMasterBoard" onclick="hide('titleSlide');show('masterBoardSlide', 'grid');">Master Board</div>
             </div>
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-15 ~ ©2011-2018 Tim's Slideshow Games</div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-16 ~ ©2011-2018 Tim's Slideshow Games</div>
         </div>
       </div>
 
@@ -90,6 +90,121 @@
         <div class="helpFooter">
           <div class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
             Main Menu
+          </div>
+        </div>
+      </div>
+
+      <div id="masterBoardSlide">
+
+        <div class="controlsCol"></div>
+        <div class="bingoCol bCol">
+          <div class="bingoLetter">
+            <div id="bingoB">B</div>
+          </div>
+          <div class="bingoBalls">
+            <div class="bingoBall" id="1bingo">1</div>
+            <div class="bingoBall" id="2bingo">2</div>
+            <div class="bingoBall" id="3bingo">3</div>
+            <div class="bingoBall" id="4bingo">4</div>
+            <div class="bingoBall" id="5bingo">5</div>
+            <div class="bingoBall" id="6bingo">6</div>
+            <div class="bingoBall" id="7bingo">7</div>
+            <div class="bingoBall" id="8bingo">8</div>
+            <div class="bingoBall" id="9bingo">9</div>
+            <div class="bingoBall" id="10bingo">10</div>
+            <div class="bingoBall" id="11bingo">11</div>
+            <div class="bingoBall" id="12bingo">12</div>
+            <div class="bingoBall" id="13bingo">13</div>
+            <div class="bingoBall" id="14bingo">14</div>
+            <div class="bingoBall" id="15bingo">15</div>
+          </div>
+        </div>
+        <div class="bingoCol iCol">
+          <div class="bingoLetter">
+            <div id="bingoI">I</div>
+          </div>
+          <div class="bingoBalls">
+            <div class="bingoBall" id="16bingo">16</div>
+            <div class="bingoBall" id="17bingo">17</div>
+            <div class="bingoBall" id="18bingo">18</div>
+            <div class="bingoBall" id="19bingo">19</div>
+            <div class="bingoBall" id="20bingo">20</div>
+            <div class="bingoBall" id="21bingo">21</div>
+            <div class="bingoBall" id="22bingo">22</div>
+            <div class="bingoBall" id="23bingo">23</div>
+            <div class="bingoBall" id="24bingo">24</div>
+            <div class="bingoBall" id="25bingo">25</div>
+            <div class="bingoBall" id="26bingo">26</div>
+            <div class="bingoBall" id="27bingo">27</div>
+            <div class="bingoBall" id="28bingo">28</div>
+            <div class="bingoBall" id="29bingo">29</div>
+            <div class="bingoBall" id="30bingo">30</div>
+          </div>
+        </div>
+        <div class="bingoCol nCol">
+          <div class="bingoLetter">
+            <div id="bingoN">N</div>
+          </div>
+          <div class="bingoBalls">
+            <div class="bingoBall" id="31bingo">31</div>
+            <div class="bingoBall" id="32bingo">32</div>
+            <div class="bingoBall" id="33bingo">33</div>
+            <div class="bingoBall" id="34bingo">34</div>
+            <div class="bingoBall" id="35bingo">35</div>
+            <div class="bingoBall" id="36bingo">36</div>
+            <div class="bingoBall" id="37bingo">37</div>
+            <div class="bingoBall" id="38bingo">38</div>
+            <div class="bingoBall" id="39bingo">39</div>
+            <div class="bingoBall" id="40bingo">40</div>
+            <div class="bingoBall" id="41bingo">41</div>
+            <div class="bingoBall" id="42bingo">42</div>
+            <div class="bingoBall" id="43bingo">43</div>
+            <div class="bingoBall" id="44bingo">44</div>
+            <div class="bingoBall" id="45bingo">45</div>
+          </div>
+        </div>
+        <div class="bingoCol gCol">
+          <div class="bingoLetter">
+            <div id="bingoG">G</div>
+          </div>
+          <div class="bingoBalls">
+            <div class="bingoBall" id="46bingo">46</div>
+            <div class="bingoBall" id="47bingo">47</div>
+            <div class="bingoBall" id="48bingo">48</div>
+            <div class="bingoBall" id="49bingo">49</div>
+            <div class="bingoBall" id="50bingo">50</div>
+            <div class="bingoBall" id="51bingo">51</div>
+            <div class="bingoBall" id="52bingo">52</div>
+            <div class="bingoBall" id="53bingo">53</div>
+            <div class="bingoBall" id="54bingo">54</div>
+            <div class="bingoBall" id="55bingo">55</div>
+            <div class="bingoBall" id="56bingo">56</div>
+            <div class="bingoBall" id="57bingo">57</div>
+            <div class="bingoBall" id="58bingo">58</div>
+            <div class="bingoBall" id="59bingo">59</div>
+            <div class="bingoBall" id="60bingo">60</div>
+          </div>
+        </div>
+        <div class="bingoCol oCol">
+          <div class="bingoLetter">
+            <div id="bingoO">O</div>
+          </div>
+          <div class="bingoBalls">
+            <div class="bingoBall" id="61bingo">61</div>
+            <div class="bingoBall" id="62bingo">62</div>
+            <div class="bingoBall" id="63bingo">63</div>
+            <div class="bingoBall" id="64bingo">64</div>
+            <div class="bingoBall" id="65bingo">65</div>
+            <div class="bingoBall" id="66bingo">66</div>
+            <div class="bingoBall" id="67bingo">67</div>
+            <div class="bingoBall" id="68bingo">68</div>
+            <div class="bingoBall" id="69bingo">69</div>
+            <div class="bingoBall" id="70bingo">70</div>
+            <div class="bingoBall" id="71bingo">71</div>
+            <div class="bingoBall" id="72bingo">72</div>
+            <div class="bingoBall" id="73bingo">73</div>
+            <div class="bingoBall" id="74bingo">74</div>
+            <div class="bingoBall" id="75bingo">75</div>
           </div>
         </div>
       </div>

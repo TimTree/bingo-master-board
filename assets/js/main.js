@@ -2,18 +2,25 @@ const fixedWidth = document.getElementById("area").offsetWidth;
 const fixedHeight = document.getElementById("area").offsetHeight;
 let isFullScreen = false;
 
+let themeColor = "#d1cc85";
+
 function init() {
 	resize();
 	window.addEventListener('resize', resize);
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
+
+	const bingoBallClass = document.querySelectorAll(".bingoBall");
+	for (let i = 0; i < bingoBallClass.length; i+=1) {
+		bingoBallClass[i].addEventListener("click", activateBingoBall);
+	}
+
 	setTimeout(() => {
 		show("titleSlide");
 		show("fullScreenToggle");
 	},50);
 }
-
 
 function resize() {
   const viewNames = [
@@ -52,6 +59,10 @@ function show(elementName, display) {
 	  document.getElementById(elementName).style.display = "grid";
 	} else {
 	  document.getElementById(elementName).style.display = "block";
+	}
+	if (elementName === "masterBoardSlide") {
+		changeBG(themeColor);
+		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
 	}
 	setTimeout(() => {
 	  document.getElementById("fader").classList.remove("notransition");
@@ -96,4 +107,19 @@ function changeFullScreenImg() {
     document.getElementById("fullScreenButton").style.display = "none";
     document.getElementById("fullScreenButtonDown").style.display = "block";
   }
+}
+
+function changeBG(color) {
+	document.getElementById("area").style.background=color;
+	document.getElementById("fader").style.background=color;
+}
+
+function activateBingoBall(e) {
+	e.preventDefault();
+	console.log(parseInt(e.target.id));
+	if (document.getElementById(e.target.id).classList.contains("bingoBallActiveB")) {
+		document.getElementById(e.target.id).classList.remove("bingoBallActiveB");
+	} else {
+		document.getElementById(e.target.id).classList.add("bingoBallActiveB");
+	}
 }

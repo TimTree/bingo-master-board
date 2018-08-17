@@ -80,7 +80,7 @@ body {
   height:720px;
   width:1280px;
   overflow:hidden;
-  transition:opacity 0.25s linear;
+  transition: opacity 0.25s linear;
   pointer-events: none;
   opacity:1;
 }
@@ -116,23 +116,6 @@ body {
   margin-bottom:2.5em;
 }
 
-#a {
-  width: 400px;
-  height: 100px;
-  position:absolute;
-  bottom:600px;
-  left:0;
-}
-.first {
-  font-size: 60px;
-  background-color: #9BBCE3;
-}
-.first::after {
-  content: "";
-  height: 100%;
-  display: inline-block;
-}
-
 .flexCenter {
   display:flex;
   align-items:center;
@@ -147,7 +130,7 @@ body {
   background-repeat:no-repeat;
 }
 
-#howToUseSlide {
+#howToUseSlide, #aboutCreditsSlide {
   display:none;
   height:100%;
   grid-template-columns:100%;
@@ -159,16 +142,12 @@ body {
                 "helpFooter";;
 }
 
-#aboutCreditsSlide {
+#masterBoardSlide {
   display:none;
   height:100%;
-  grid-template-columns:100%;
-  grid-template-rows: 96px 44px 2px 1fr 77px;
-  grid-template-areas: "helpHeader"
-                "helpNav"
-                "helpLine"
-                "helpContent"
-                "helpFooter";;
+  grid-template-columns:255px 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
 }
 
 h2 {
@@ -177,6 +156,34 @@ h2 {
   text-align:center;
   margin:22px 0;
   grid-area: helpHeader;
+}
+
+.controlsCol {
+  grid-area: controlsCol;
+}
+
+.bCol {
+  grid-area: bCol;
+}
+
+.iCol {
+  grid-area: iCol;
+}
+
+.nCol {
+  grid-area: nCol;
+}
+
+.gCol {
+  grid-area: gCol;
+}
+
+.oCol {
+  grid-area: oCol;
+}
+
+.bingoCol {
+  border-left: 2px solid #948a54;
 }
 
 .helpNav {
@@ -247,9 +254,18 @@ h2 {
 #fullScreenToggle {
   display:none;
   position:absolute;
+  transition: opacity 0.25s linear;
+}
+
+.fullScreenToggleBig {
   right:25px;
   top:20px;
-  transition: opacity 0.25s linear;
+}
+
+.fullScreenToggleSmall {
+  right:15px;
+  top:5px;
+  transform:scale(0.5);
 }
 
 #fullScreenButton, #fullScreenButtonDown {
@@ -278,25 +294,89 @@ h2 {
   background-image:url("../img/fullscreenDownHover.svg");
 }
 
-#testShape {
-  position:absolute;
-  width:200px;
-  height:200px;
-  background:blue;
-  animation-name: example;
-animation-duration: 4s;
-animation-iteration-count: infinite;
-z-index:1;
-}
-
-@keyframes example {
-0%   {background-color:red; left:0px; top:0px;transform:scale(1.0);}
-25%  {background-color:yellow; left:200px; top:0px;transform:scale(1.2);}
-50%  {background-color:blue; left:200px; top:200px;transform:scale(1.5);}
-75%  {background-color:green; left:0px; top:200px;transform:scale(1.2);}
-100% {background-color:red; left:0px; top:0px;transform:scale(1.0);}
-}
-
 .smallMargin {
 margin:0.5em 0;
 }
+
+.bingoLetter {
+  font-family:arya;
+  font-weight:700;
+  color:#ce181e;
+  font-size:110px;
+  text-align:center;
+  line-height:0.8;
+  width:40%;
+  margin:41px auto 13px auto;
+  overflow:hidden;
+}
+
+.bingoLetter:hover {
+  cursor:pointer;
+}
+
+#bingoB, #bingoI, #bingoN, #bingoG, #bingoO {
+  margin-top:-10px;
+}
+
+.bingoBalls {
+  text-align:center;
+}
+
+.bingoBall {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 50%;
+  width:61px;
+  height:61px;
+  background:#9b9b9b;
+  margin:4px 10px;
+  font-size:38px;
+  cursor:pointer;
+  border:1px solid #333;
+  color:#000;
+  opacity:0.23;
+}
+
+.bingoBall:hover {
+  opacity:0.54;
+}
+
+.bingoBallActiveB {
+  border:1px solid rgb(228,108,10);
+  color:#6b3205;
+  opacity:1;
+font-weight:700;
+  background:radial-gradient(circle at 31.5px 12px, rgba(247, 182, 128,0.85), rgba(228,108,10,0.85));;
+}
+
+.bingoBallActiveB:hover {
+  opacity:1;
+}
+
+/*.bingoBall {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:61px;
+  height:61px;
+color:gray;
+  margin:4.5px 10px;
+  font-size:52px;
+  cursor:pointer;
+  color:#000;
+  opacity:0.17;
+}
+
+.bingoBall:hover {
+  opacity:0.54;
+}
+
+.bingoBallActiveB {
+  opacity:1;
+font-weight:700;
+}
+
+.bingoBallActiveB:hover {
+  opacity:1;
+}*/
