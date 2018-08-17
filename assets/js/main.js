@@ -10,12 +10,10 @@ function init() {
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
-
 	const bingoBallClass = document.querySelectorAll(".bingoBall");
 	for (let i = 0; i < bingoBallClass.length; i+=1) {
-		bingoBallClass[i].addEventListener("click", activateBingoBall);
+		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(bingoBallClass[i].id)});
 	}
-
 	setTimeout(() => {
 		show("titleSlide");
 		show("fullScreenToggle");
@@ -37,6 +35,7 @@ function resize() {
     for (let i = 0; i<viewNames.length; i+=1) {
       viewNames[i].style.transform = `scale(` + (window.innerWidth/fixedWidth) + `)`;
     }
+
   }
 }
 
@@ -114,12 +113,10 @@ function changeBG(color) {
 	document.getElementById("fader").style.background=color;
 }
 
-function activateBingoBall(e) {
-	e.preventDefault();
-	console.log(parseInt(e.target.id));
-	if (document.getElementById(e.target.id).classList.contains("bingoBallActiveB")) {
-		document.getElementById(e.target.id).classList.remove("bingoBallActiveB");
+function activateBingoBall(bingoID) {
+	if (document.getElementById(bingoID).classList.contains("bingoBallActiveB")) {
+		document.getElementById(bingoID).classList.remove("bingoBallActiveB");
 	} else {
-		document.getElementById(e.target.id).classList.add("bingoBallActiveB");
+		document.getElementById(bingoID).classList.add("bingoBallActiveB");
 	}
 }
