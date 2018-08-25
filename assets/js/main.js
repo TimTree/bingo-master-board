@@ -16,14 +16,16 @@ function init() {
 	}
 	setTimeout(() => {
 		show("titleSlide");
-		show("fullScreenToggle");
+		show("fullScreenToggleLayer");
 	},50);
 }
 
 function resize() {
   const viewNames = [
     document.getElementById("area"),
-  	document.getElementById("fader")
+  	document.getElementById("fader"),
+		document.getElementById("fullScreenToggleLayer"),
+		document.getElementById("drawBallLayer")
   ];
   let areaMultiplier = viewNames[0].offsetHeight/viewNames[0].offsetWidth;
   let windowMultiplier = window.innerHeight/window.innerWidth;
@@ -61,6 +63,7 @@ function show(elementName, display) {
 	}
 	if (elementName === "masterBoardSlide") {
 		changeBG(themeColor);
+		document.getElementById("drawBallLayer").style.display = "block";
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
 	}
 	setTimeout(() => {

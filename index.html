@@ -19,16 +19,39 @@
   <body onload="init();">
 
     <!-- External layers -->
-    <div id="fader">
-    </div>
-    <!-- End -->
 
-    <div id="area">
-
+    <div class="layer" id="fullScreenToggleLayer">
       <div class="fullScreenToggleBig" id="fullScreenToggle">
         <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
         <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
       </div>
+    </div>
+
+    <div id="fader">
+    </div>
+
+    <div class="layer" id="drawBallLayer">
+      <div id="drawBallDiv">
+        <svg width="159" height="96" viewBox="-79.5 -47 159 94">
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:rgba(164,152,92,0.8);" />
+              <stop offset="100%" style="stop-color:rgba(183,174,127,0.8);" />
+            </linearGradient>
+          </defs>
+          <g id="hex">
+          <polygon points="-52.5,45 52.5,45 77.5,0 52.5,-45 -52.5,-45 -77.5,0" stroke="rgb(94,87,52)" stroke-width="2" fill="url(#gradient)">
+          </polygon>
+            <text x="-41" y="-6" fill="#000" font-size="27">DRAW</text>
+            <text x="-33" y="26" fill="#000" font-size="27">BALL</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- End -->
+
+    <div id="area">
 
       <div id="titleSlide">
         <div class="flexCenter">
@@ -46,7 +69,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-16 ~ ©2011-2018 Tim's Slideshow Games</div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-24 ~ ©2011-2018 Tim's Slideshow Games</div>
         </div>
       </div>
 
