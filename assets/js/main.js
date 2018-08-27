@@ -123,3 +123,11 @@ function activateBingoBall(bingoID) {
 		document.getElementById(bingoID).classList.add("bingoBallActiveB");
 	}
 }
+
+function toggleBlocker() {
+	if (document.getElementById("blocker").style.left === "255px") {
+		document.getElementById("blocker").style.left = 1287 + "px";
+	} else {
+		document.getElementById("blocker").style.left = 255 + "px";
+	}
+}

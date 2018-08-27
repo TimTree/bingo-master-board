@@ -69,7 +69,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-24 ~ ©2011-2018 Tim's Slideshow Games</div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-26 ~ ©2011-2018 Tim's Slideshow Games</div>
         </div>
       </div>
 
@@ -118,7 +118,10 @@
       </div>
 
       <div id="masterBoardSlide">
-        <div class="controlsCol"></div>
+        <div id="blocker"></div>
+        <div class="controlsCol">
+          <div id="hideShowBoard" onclick="toggleBlocker()">Toggle Board</div>
+        </div>
         <div class="bingoCol bCol">
           <div class="bingoLetter">
             <div id="bingoB">B</div>

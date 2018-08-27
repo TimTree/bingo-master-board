@@ -184,6 +184,7 @@ h2 {
 
 .bingoCol {
   border-left: 2px solid rgba(0,0,0,0.31);
+  position:relative;
 }
 
 .helpNav {
@@ -340,21 +341,41 @@ margin:0.5em 0;
   font-size:110px;
   text-align:center;
   line-height:0.8;
-  width:40%;
+  left:50%;
+  transform: translateX(-50%);
   margin:41px auto 13px auto;
   overflow:hidden;
+  z-index:2;
+  position:absolute;
 }
 
 .bingoLetter:hover {
   cursor:pointer;
 }
 
+#blocker {
+  position:absolute;
+  width:1280px;
+  height:720px;
+  background-image: linear-gradient(#c4bd97, #948A54);
+  z-index:1;
+  left:1287px;
+  box-shadow: 5px 0 7px 7px rgba(0,0,0,0.6);
+  transition: left 0.5s;
+}
+
+#hideShowBoard {
+  font-size:15px;
+  margin-top:600px;
+  text-align:center;
+}
 #bingoB, #bingoI, #bingoN, #bingoG, #bingoO {
   margin-top:-10px;
 }
 
 .bingoBalls {
   text-align:center;
+  margin-top:132px;
 }
 
 .bingoBall {
