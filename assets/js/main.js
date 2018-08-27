@@ -42,10 +42,19 @@ function init() {
 	for (let i = 0; i < bingoBallClass.length; i+=1) {
 		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(bingoBallClass[i].id)});
 	}
-	setTimeout(() => {
-		show("titleSlide");
-		show("fullScreenToggleLayer");
-	},50);
+  let param = location.search;
+  if (param == "?masterboard") {
+    setTimeout(() => {
+      hide("titleSlide");
+  		show("masterBoardSlide", "grid");
+  		show("fullScreenToggleLayer");
+  	},50);
+  } else {
+    setTimeout(() => {
+  		show("titleSlide");
+  		show("fullScreenToggleLayer");
+  	},50);
+  }
 }
 
 function resize() {
@@ -94,6 +103,7 @@ function show(elementName, display) {
 		document.getElementById("drawBallLayer").style.display = "block";
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
 		document.getElementById("homeButton").style.display = "block";
+    setUpMasterBoard();
 	}
 	setTimeout(() => {
 	  document.getElementById("fader").classList.remove("notransition");
@@ -160,9 +170,25 @@ function activateBingoBall(bingoID) {
 }
 
 function toggleBlocker() {
-	if (document.getElementById("blocker").style.left === "255px") {
+	if (saveData.blockerEnabled === true) {
+    saveData.blockerEnabled = false;
 		document.getElementById("blocker").style.left = 1287 + "px";
 	} else {
+    saveData.blockerEnabled = true;
 		document.getElementById("blocker").style.left = 255 + "px";
 	}
+  setUpMasterBoard();
+  save();
+}
+
+function setUpMasterBoard() {
+  if (saveData.blockerEnabled === false) {
+    document.getElementById("showBoard").style.display = "none";
+    document.getElementById("hideBoard").style.display = "flex";
+    document.getElementById("blocker").style.left = 1287 + "px";
+  } else {
+    document.getElementById("hideBoard").style.display = "none";
+    document.getElementById("showBoard").style.display = "flex";
+    document.getElementById("blocker").style.left = 255 + "px";
+  }
 }

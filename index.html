@@ -72,7 +72,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-26 ~ ©2011-2018 Tim's Slideshow Games</div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-08-27 ~ ©2011-2018 Tim's Slideshow Games</div>
         </div>
       </div>
 
@@ -125,12 +125,13 @@
         <div class="controlsCol">
           <div style="margin:-6px 0 0 28px;">
             <span class="smallButton" id="reset">Reset</span>
-            <span class="smallButton" id="themes">Themes</span>
+            <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
           </div>
           <div id="bigBingoBall">
 
           </div>
-          <div id="hideShowBoard" onclick="toggleBlocker()">Toggle Board</div>
+          <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
+          <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>
         </div>
         <div class="bingoCol bCol">
           <div class="bingoLetter">
@@ -251,6 +252,27 @@
           <div class="bingoBallActiveO">a</div>
         </div>
         <!--End-->
+      </div>
+
+      <div id="settingsSlide">
+        <h2>Themes</h2>
+        <div class="helpContent">
+          <div class="flexCenter">
+            <div style="text-align:center;">
+              <p><strong>Background</strong></p>
+              <p class="themeSelection">
+                Classic
+                Red
+                Green
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="helpFooter">
+          <div class="helpFooterLabel" onclick="hide('settingsSlide');show('masterBoardSlide', 'grid');">
+            Go Back
+          </div>
+        </div>
       </div>
 
     </div>

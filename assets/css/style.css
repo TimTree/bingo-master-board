@@ -139,7 +139,7 @@ body {
                 "helpNav"
                 "helpLine"
                 "helpContent"
-                "helpFooter";;
+                "helpFooter";
 }
 
 #masterBoardSlide {
@@ -148,6 +148,16 @@ body {
   grid-template-columns:255px 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100%;
   grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
+}
+
+#settingsSlide {
+  display:none;
+  height:100%;
+  grid-template-columns:100%;
+  grid-template-rows: 96px 1fr 77px;
+  grid-template-areas: "helpHeader"
+                      "helpContent"
+                      "helpFooter";
 }
 
 h2 {
@@ -386,10 +396,35 @@ margin:0.5em 0;
   transition: left 0.5s;
 }
 
-#hideShowBoard {
-  font-size:15px;
-  margin-top:70px;
-  text-align:center;
+.boardToggle {
+  width:115px;
+  height:26px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:14.5px;
+  margin: 77px auto 0 auto;
+  cursor:pointer;
+  border-radius: 12px 0 12px 0;
+  transition:background-color 0.15s;
+}
+
+#hideBoard {
+  background-color:rgba(75,172,198,0.3);
+  border: 1px solid rgba(49,133,156,0.65);
+}
+
+#hideBoard:hover {
+  background-color:rgba(75,172,198,0.5);
+}
+
+#showBoard {
+  background-color:rgba(192,80,77,0.3);
+  border: 1px solid rgba(192,80,77,0.65);
+}
+
+#showBoard:hover {
+  background-color:rgba(192,80,77,0.5);
 }
 
 .smallButton {
@@ -493,6 +528,11 @@ font-weight:700;
 
 .bingoBallActiveB:hover, .bingoBallActiveI:hover, .bingoBallActiveN:hover, .bingoBallActiveG:hover, .bingoBallActiveO:hover {
   opacity:1;
+}
+
+.themeSelection {
+  font-size:46px;
+  font-weight:700;
 }
 
 /*.bingoBall {
