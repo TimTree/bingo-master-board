@@ -375,9 +375,10 @@ margin:0.5em 0;
 }
 
 #blocker {
-  position:absolute;
+  position:relative;
   width:1280px;
   height:720px;
+  margin-top:-720px;
   background-image: linear-gradient(#c4bd97, #948A54);
   z-index:1;
   left:1287px;
