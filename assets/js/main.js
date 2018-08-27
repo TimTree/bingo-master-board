@@ -2,7 +2,35 @@ const fixedWidth = document.getElementById("area").offsetWidth;
 const fixedHeight = document.getElementById("area").offsetHeight;
 let isFullScreen = false;
 
-let themeColor = "#d1cc85";
+let saveData = {
+  drawnBingoBalls: [],
+  themeColor: "#d1cc85",
+  blockerEnabled: false
+}
+
+if(typeof(localStorage) !== "undefined") {
+  if (localStorage.getItem("bingoMasterBoardSaveData")) {
+    saveData = JSON.parse(localStorage.getItem("bingoMasterBoardSaveData"));
+  }
+}
+
+var isNotSafariPrivate = function() {
+  var doesItWork = 'test', storage = window.sessionStorage;
+  try {
+    storage.setItem(doesItWork, '1');
+    storage.removeItem(doesItWork);
+    return true;
+  }
+  catch (error) {
+    return false;
+  }
+}
+
+function save() {
+  if ( isNotSafariPrivate() ) {
+    localStorage.setItem('bingoMasterBoardSaveData', JSON.stringify(saveData));
+  }
+}
 
 function init() {
 	resize();
@@ -62,9 +90,10 @@ function show(elementName, display) {
 	  document.getElementById(elementName).style.display = "block";
 	}
 	if (elementName === "masterBoardSlide") {
-		changeBG(themeColor);
+		changeBG(saveData.themeColor);
 		document.getElementById("drawBallLayer").style.display = "block";
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
+		document.getElementById("homeButton").style.display = "block";
 	}
 	setTimeout(() => {
 	  document.getElementById("fader").classList.remove("notransition");
@@ -74,6 +103,12 @@ function show(elementName, display) {
 
 function hide(elementName) {
   document.getElementById(elementName).style.display = "none";
+	if (elementName === "masterBoardSlide") {
+		changeBG("radial-gradient(#f7eaab, #bfbb73)");
+		document.getElementById("drawBallLayer").style.display = "none";
+		document.getElementById("fullScreenToggle").classList.remove("fullScreenToggleSmall");
+		document.getElementById("homeButton").style.display = "none";
+	}
 }
 
 function toggleFullScreen(event) {

@@ -21,6 +21,9 @@
     <!-- External layers -->
 
     <div class="layer" id="fullScreenToggleLayer">
+      <div class="homeButtonLabel">
+        <div id="homeButton" onclick="hide('masterBoardSlide');show('titleSlide');"></div>
+      </div>
       <div class="fullScreenToggleBig" id="fullScreenToggle">
         <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
         <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
@@ -120,6 +123,13 @@
       <div id="masterBoardSlide">
         <div id="blocker"></div>
         <div class="controlsCol">
+          <div style="margin:-6px 0 0 28px;">
+            <span class="smallButton" id="reset">Reset</span>
+            <span class="smallButton" id="themes">Themes</span>
+          </div>
+          <div id="bigBingoBall">
+
+          </div>
           <div id="hideShowBoard" onclick="toggleBlocker()">Toggle Board</div>
         </div>
         <div class="bingoCol bCol">
