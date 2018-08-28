@@ -5,7 +5,8 @@ let isFullScreen = false;
 let saveData = {
   drawnBingoBalls: [],
   themeColor: "classic",
-  blockerEnabled: false
+  blockerEnabled: false,
+  lastActionWasRemove: false
 }
 
 if(typeof(localStorage) !== "undefined") {
@@ -40,14 +41,14 @@ function init() {
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 	const bingoBallClass = document.querySelectorAll(".bingoBall");
 	for (let i = 0; i < bingoBallClass.length; i+=1) {
-		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(bingoBallClass[i].id)});
+		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(i+1)});
 	}
   let param = location.search;
   if (param == "?masterboard") {
     setTimeout(() => {
       hide("titleSlide");
+      show("fullScreenToggleLayer");
   		show("masterBoardSlide", "grid");
-  		show("fullScreenToggleLayer");
   	},50);
   } else {
     setTimeout(() => {
@@ -104,7 +105,15 @@ function show(elementName, display) {
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
 		document.getElementById("homeButton").style.display = "block";
     setUpMasterBoard();
-	}
+    	document.onkeydown = function(e) {
+    		if (e.keyCode == 32) {randomDraw();}
+    		if (e.keyCode == 82) {resetBoard();}
+    	}
+
+	} else {
+    document.onkeydown = function(e) {
+    }
+  }
   if (elementName === "settingsSlide") {
     setUpSettings(saveData.themeColor);
   }
@@ -183,12 +192,115 @@ function changeBG(color) {
 	document.getElementById("fader").style.background=newColor;
 }
 
-function activateBingoBall(bingoID) {
-	if (document.getElementById(bingoID).classList.contains("bingoBallActiveB")) {
-		document.getElementById(bingoID).classList.remove("bingoBallActiveB");
+function activateBingoBall(bingoIDNum) {
+  let typeOfBingoBall = typeOfBingo(bingoIDNum);
+  let typeOfBingoBallLetter = typeOfBingoLetter(bingoIDNum);
+  let bingoID = bingoIDNum + "bingo";
+	if (saveData.drawnBingoBalls.indexOf(bingoIDNum) === -1) {
+		document.getElementById(bingoID).classList.add(typeOfBingoBall);
+    document.getElementById("bigBingoBall").classList.remove(document.getElementById("bigBingoBall").classList.item(1));
+    document.getElementById("bigBingoBall").classList.add(typeOfBingoBall);
+    document.getElementById("bigBingoLetter").innerHTML=typeOfBingoBallLetter;
+    document.getElementById("bigBingoNumber").innerHTML=bingoIDNum;
+    document.getElementById("bigBingoNumber").style.fontSize=104+"px";
+    setTimeout(() => {
+      document.getElementById("bigBingoNumber").style.fontSize=95+"px";
+    },100);
+    saveData.drawnBingoBalls.push(bingoIDNum);
+    saveData.lastActionWasRemove = false;
+    save();
 	} else {
-		document.getElementById(bingoID).classList.add("bingoBallActiveB");
+		document.getElementById(bingoID).classList.remove(typeOfBingoBall);
+    document.getElementById("bigBingoBall").classList.remove(document.getElementById("bigBingoBall").classList.item(1));
+    document.getElementById("bigBingoLetter").innerHTML="&nbsp;";
+    document.getElementById("bigBingoNumber").innerHTML="&nbsp;";
+    saveData.drawnBingoBalls.splice(saveData.drawnBingoBalls.indexOf(bingoIDNum), 1);
+    saveData.lastActionWasRemove = true;
+    save();
 	}
+}
+
+function typeOfBingo(num) {
+  if (num <= 15){
+    return "bingoBallActiveB";
+  } else if (num <= 30) {
+    return "bingoBallActiveI";
+  } else if (num <= 45) {
+    return "bingoBallActiveN";
+  } else if (num <= 60) {
+    return "bingoBallActiveG";
+  } else {
+    return "bingoBallActiveO";
+  }
+}
+
+function typeOfBingoLetter(num) {
+  if (num <= 15){
+    return "B";
+  } else if (num <= 30) {
+    return "I";
+  } else if (num <= 45) {
+    return "N";
+  } else if (num <= 60) {
+    return "G";
+  } else {
+    return "O";
+  }
+}
+
+function loadBingoBall(bingoIDNum) {
+  let typeOfBingoBall = typeOfBingo(bingoIDNum);
+  let bingoID = bingoIDNum + "bingo";
+		document.getElementById(bingoID).classList.add(typeOfBingoBall);
+  if (saveData.drawnBingoBalls.indexOf(bingoIDNum) === saveData.drawnBingoBalls.length-1 && saveData.lastActionWasRemove === false) {
+    let typeOfBingoBallLetter = typeOfBingoLetter(bingoIDNum);
+    document.getElementById("bigBingoBall").classList.remove(document.getElementById("bigBingoBall").classList.item(1));
+    document.getElementById("bigBingoBall").classList.add(typeOfBingoBall);
+    document.getElementById("bigBingoLetter").innerHTML=typeOfBingoBallLetter;
+    document.getElementById("bigBingoNumber").innerHTML=bingoIDNum;
+  }
+}
+
+function resetBoard() {
+  for (let i=0;i<75;i+=1) {
+    document.getElementById(i+1 + "bingo").classList.remove(document.getElementById(i+1 + "bingo").classList.item(1));
+  }
+  document.getElementById("bigBingoBall").classList.remove(document.getElementById("bigBingoBall").classList.item(1));
+  document.getElementById("bigBingoLetter").innerHTML="&nbsp;";
+  document.getElementById("bigBingoNumber").innerHTML="&nbsp;";
+  const bingoBallsClass = document.querySelectorAll(".bingoBalls");
+  for (let i = 0; i < bingoBallsClass.length; i+=1) {
+    bingoBallsClass[i].classList.add("notransition");
+    bingoBallsClass[i].style.opacity = 0;
+    setTimeout(() => {
+      bingoBallsClass[i].classList.remove("notransition");
+      bingoBallsClass[i].style.opacity = 1;
+    },100)
+  }
+  document.getElementById("blocker").classList.add("notransition");
+  document.getElementById("blocker").style.opacity = 0;
+
+  // Chrome has a Bingo letter rendering bug when resetting with the blocker enabled.
+  // Until Chrome fixes this bug, this browser-specific workaround is necessary.
+  // Safari also has this bug, but it is fixed in the latest Technology Preview.
+  const isChrome = !!window.chrome && !!window.chrome.webstore;
+  if (isChrome === true) {
+    const bingoLetterClass = document.querySelectorAll(".bingoLetter");
+    for (let i = 0; i < bingoLetterClass.length; i+=1) {
+      bingoLetterClass[i].classList.add("chromeBingoLetterFix");
+      setTimeout(() => {
+        bingoLetterClass[i].classList.remove("chromeBingoLetterFix");
+      },410)
+    }
+  }
+
+  setTimeout(() => {
+    document.getElementById("blocker").classList.remove("notransition");
+    document.getElementById("blocker").style.opacity = 1;
+  },100)
+  saveData.drawnBingoBalls = [];
+  saveData.lastActionWasRemove = false;
+  save();
 }
 
 function toggleBlocker() {
@@ -212,6 +324,9 @@ function setUpMasterBoard() {
     document.getElementById("hideBoard").style.display = "none";
     document.getElementById("showBoard").style.display = "flex";
     document.getElementById("blocker").style.left = 255 + "px";
+  }
+  for (let i=0;i<saveData.drawnBingoBalls.length;i+=1) {
+    loadBingoBall(saveData.drawnBingoBalls[i]);
   }
 }
 

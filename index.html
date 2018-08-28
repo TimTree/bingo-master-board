@@ -131,12 +131,12 @@
         <div id="blocker"></div>
         <div class="controlsCol">
           <div style="margin:-6px 0 0 28px;">
-            <span class="smallButton" id="reset">Reset</span>
+            <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
           </div>
-          <div id="bigBingoBall">
-            <div id="bigBingoLetter">B</div>
-            <div id="bigBingoNumber">13</div>
+          <div class="bigBingoBallClass" id="bigBingoBall">
+            <div id="bigBingoLetter">&nbsp;</div>
+            <div id="bigBingoNumber">&nbsp;</div>
           </div>
           <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
           <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>

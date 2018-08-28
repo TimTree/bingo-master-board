@@ -405,7 +405,7 @@ margin:0.5em 0;
   z-index:1;
   left:1287px;
   box-shadow: 5px 0 7px 7px rgba(0,0,0,0.6);
-  transition: left 0.5s;
+  transition: left 0.5s, opacity 0.3s;
 }
 
 .boardToggle {
@@ -453,20 +453,26 @@ margin:0.5em 0;
   background-color:rgba(255,0,0,0.25);
 }
 
+#reset:active {
+  background-color:rgba(255,0,0,0.5);
+}
+
 #themes:hover {
   background-color:rgba(80,80,80,0.25);
+}
+
+.bigBingoBallClass {
+  background:#9b9b9b;
+  border:2.5px solid #333;
+  opacity:0.21;
 }
 
 #bigBingoBall {
   border-radius:50%;
   width:186px;
   height:186px;
-  background:gray;
-  border:2.5px solid #333;
   margin:0 auto;
   margin-top:350px;
-  background:#9b9b9b;
-  opacity:0.22;
   cursor:pointer;
 }
 
@@ -494,7 +500,7 @@ margin:0.5em 0;
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:font-size 0.15s;
+  transition:font-size 0.1s;
 }
 
 #bingoB, #bingoI, #bingoN, #bingoG, #bingoO {
@@ -504,6 +510,7 @@ margin:0.5em 0;
 .bingoBalls {
   text-align:center;
   margin-top:132px;
+  transition:opacity 0.3s;
 }
 
 .bingoBall {
@@ -517,9 +524,11 @@ margin:0.5em 0;
   margin:4px 10px;
   font-size:38px;
   cursor:pointer;
-  border:1px solid #333;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#333;
   color:#000;
-  opacity:0.22;
+  opacity:0.21;
 }
 
 .bingoBall:hover {
@@ -527,7 +536,7 @@ margin:0.5em 0;
 }
 
 .bingoBallActiveB {
-  border:1px solid rgb(228,108,10);
+  border-color:rgb(228,108,10);
   color:#6b3205;
   opacity:1;
 font-weight:700;
@@ -535,7 +544,7 @@ font-weight:700;
 }
 
 .bingoBallActiveI {
-  border:1px solid rgb(119,147,60);
+  border-color:rgb(119,147,60);
   color:#3e4f1f;
   opacity:1;
   font-weight:700;
@@ -543,7 +552,7 @@ font-weight:700;
 }
 
 .bingoBallActiveN {
-  border:1px solid rgb(49,133,156);
+  border-color:rgb(49,133,156);
   color:#194551;
   opacity:1;
   font-weight:700;
@@ -551,7 +560,7 @@ font-weight:700;
 }
 
 .bingoBallActiveG {
-  border:1px solid rgb(96,74,123);
+  border-color:rgb(96,74,123);
   color:#352944;
   opacity:1;
   font-weight:700;
@@ -559,7 +568,7 @@ font-weight:700;
 }
 
 .bingoBallActiveO {
-  border:1px solid rgb(149,55,53);
+  border-color:rgb(149,55,53);
   color:#5e2221;
   opacity:1;
   font-weight:700;
@@ -616,6 +625,10 @@ font-weight:700;
 
 #purple {
   color:rgb(164,70,153);
+}
+
+.chromeBingoLetterFix {
+  transform:translateX(-50%) translateZ(0);
 }
 
 /*.bingoBall {
