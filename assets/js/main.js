@@ -264,16 +264,16 @@ function loadBingoBall(bingoIDNum) {
 
 function randomDraw() {
   if (saveData.drawnBingoBalls.length === 75) {
-    document.getElementById("hex").style.transform = "rotate(15deg)";
+    document.getElementById("drawBallDiv").style.transform = "rotate(15deg)";
     setTimeout(() => {
-      document.getElementById("hex").style.transform = "rotate(0deg)";
+      document.getElementById("drawBallDiv").style.transform = "rotate(0deg)";
     },100)
   } else {
-    document.getElementById("hex").style.transform = "scale(0.9)";
-    document.getElementById("hex").style.opacity = 0.6;
+    document.getElementById("drawBallDiv").style.transform = "scale(0.9)";
+    document.getElementById("drawBallDiv").style.opacity = 0.6;
     setTimeout(() => {
-      document.getElementById("hex").style.transform = "scale(1)";
-      document.getElementById("hex").style.opacity = 1;
+      document.getElementById("drawBallDiv").style.transform = "scale(1)";
+      document.getElementById("drawBallDiv").style.opacity = 1;
     },100)
       let numberOfSlots = 0;
       let numbersAvailable = [];

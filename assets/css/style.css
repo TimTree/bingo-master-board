@@ -295,12 +295,11 @@ h2 {
   top:252px;
   left:48px;
   pointer-events:auto;
-  transition:0.5s;
+  transition:0.1s;
 }
 
 #hex {
   cursor:pointer;
-  transition: 0.1s;
 }
 
 #hex polygon {
