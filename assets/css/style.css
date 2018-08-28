@@ -300,7 +300,7 @@ h2 {
 
 #hex {
   cursor:pointer;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 #hex polygon {

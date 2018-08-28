@@ -108,6 +108,7 @@ function show(elementName, display) {
     	document.onkeydown = function(e) {
     		if (e.keyCode == 32) {randomDraw();}
     		if (e.keyCode == 82) {resetBoard();}
+        if (e.keyCode == 88) {toggleBlocker();}
     	}
 
 	} else {
@@ -258,6 +259,32 @@ function loadBingoBall(bingoIDNum) {
     document.getElementById("bigBingoBall").classList.add(typeOfBingoBall);
     document.getElementById("bigBingoLetter").innerHTML=typeOfBingoBallLetter;
     document.getElementById("bigBingoNumber").innerHTML=bingoIDNum;
+  }
+}
+
+function randomDraw() {
+  if (saveData.drawnBingoBalls.length === 75) {
+    document.getElementById("hex").style.transform = "rotate(15deg)";
+    setTimeout(() => {
+      document.getElementById("hex").style.transform = "rotate(0deg)";
+    },100)
+  } else {
+    document.getElementById("hex").style.transform = "scale(0.9)";
+    document.getElementById("hex").style.opacity = 0.6;
+    setTimeout(() => {
+      document.getElementById("hex").style.transform = "scale(1)";
+      document.getElementById("hex").style.opacity = 1;
+    },100)
+      let numberOfSlots = 0;
+      let numbersAvailable = [];
+      for (let i = 1; i<=75;i+=1) {
+        if (saveData.drawnBingoBalls.indexOf(i) === -1) {
+          numberOfSlots+=1;
+          numbersAvailable.push(i);
+        }
+      }
+      let theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
+      activateBingoBall(theRandomNumber);
   }
 }
 
