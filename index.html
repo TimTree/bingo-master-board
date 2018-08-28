@@ -18,6 +18,13 @@
 
   <body onload="init();">
 
+    <noscript class="noscript">
+      <div>
+        <p><strong>JavaScript is disabled.</strong></p>
+        <p>Please enable it to use Bingo Master Board.</p>
+      </div>
+    </noscript>
+
     <!-- External layers -->
 
     <div class="layer" id="fullScreenToggleLayer">
@@ -128,7 +135,8 @@
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
           </div>
           <div id="bigBingoBall">
-
+            <div id="bigBingoLetter">B</div>
+            <div id="bigBingoNumber">13</div>
           </div>
           <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
           <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>
