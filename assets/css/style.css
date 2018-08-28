@@ -292,7 +292,11 @@ h2 {
 
 #hex {
   cursor:pointer;
-  transition:0.5s;
+  transition: 0.5s;
+}
+
+#hex polygon {
+  fill: url(#gradient);
 }
 
 #hex:hover polygon {
@@ -533,6 +537,49 @@ font-weight:700;
 .themeSelection {
   font-size:46px;
   font-weight:700;
+}
+
+.themeSelection span {
+    margin: 0 24px;
+}
+
+.themeSelection span:first-of-type {
+    margin-left: 0;
+}
+
+.themeSelection span:last-of-type {
+    margin-right: 0;
+}
+
+.themeColor {
+  padding:3px 12px;
+  border-radius:12px;
+  transition: background-color 0.15s;
+  cursor:pointer;
+}
+
+.themeColor:hover {
+  background-color:rgba(0,0,0,0.05);
+}
+
+#classic {
+  color:rgb(148,138,84);
+}
+
+#red {
+  color:rgb(255,0,0);
+}
+
+#green {
+  color:rgb(0,128,0);
+}
+
+#blue {
+  color:rgb(51,102,255);
+}
+
+#purple {
+  color:rgb(164,70,153);
 }
 
 /*.bingoBall {

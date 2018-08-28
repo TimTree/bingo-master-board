@@ -43,7 +43,7 @@
             </linearGradient>
           </defs>
           <g id="hex">
-          <polygon points="-52.5,45 52.5,45 77.5,0 52.5,-45 -52.5,-45 -77.5,0" stroke="rgb(94,87,52)" stroke-width="2" fill="url(#gradient)">
+          <polygon points="-52.5,45 52.5,45 77.5,0 52.5,-45 -52.5,-45 -77.5,0" stroke="rgb(94,87,52)" stroke-width="2">
           </polygon>
             <text x="-41" y="-6" fill="#000" font-size="27">DRAW</text>
             <text x="-33" y="26" fill="#000" font-size="27">BALL</text>
@@ -261,9 +261,13 @@
             <div style="text-align:center;">
               <p><strong>Background</strong></p>
               <p class="themeSelection">
-                Classic
-                Red
-                Green
+                <span class="themeColor" id="classic" onclick="changeBackgroundColor('classic');">Classic</span>
+                <span class="themeColor" id="red" onclick="changeBackgroundColor('red');">Red</span>
+                <span class="themeColor" id="green" onclick="changeBackgroundColor('green');">Green</span>
+              </p>
+              <p class="themeSelection">
+                <span class="themeColor" id="blue" onclick="changeBackgroundColor('blue');">Blue</span>
+                <span class="themeColor" id="purple" onclick="changeBackgroundColor('purple');">Purple</span>
               </p>
             </div>
           </div>
