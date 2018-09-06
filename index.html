@@ -134,9 +134,19 @@
             <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
           </div>
-          <div class="bigBingoBallClass" id="bigBingoBall">
+          <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
             <div id="bigBingoLetter">&nbsp;</div>
             <div id="bigBingoNumber">&nbsp;</div>
+          </div>
+          <div id="ballsDrawnRemaining">
+            <span id="ballsDrawn">
+              <span id="ballsDrawnNum" style="font-size:38px;font-weight:700;"></span>
+               &nbsp;drawn
+            </span>
+            <span id="ballsRemaining">
+              <span id="ballsRemainingNum" style="font-size:38px;font-weight:700;"></span>
+               &nbsp;remaining
+           </span>
           </div>
           <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
           <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>

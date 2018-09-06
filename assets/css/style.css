@@ -292,7 +292,7 @@ h2 {
 
 #drawBallDiv {
   position:absolute;
-  top:252px;
+  top:256px;
   left:48px;
   pointer-events:auto;
   transition:0.1s;
@@ -423,7 +423,7 @@ margin:0.5em 0;
   justify-content:center;
   align-items:center;
   font-size:14.5px;
-  margin: 77px auto 0 auto;
+  margin: 26px auto 0 auto;
   cursor:pointer;
   border-radius: 12px 0 12px 0;
   transition:background-color 0.15s;
@@ -484,7 +484,7 @@ margin:0.5em 0;
   cursor:pointer;
 }
 
-#bigBingoBall:hover {
+.bigBingoBallClass:hover {
   opacity:0.35;
 }
 
@@ -509,6 +509,32 @@ margin:0.5em 0;
   align-items:center;
   justify-content:center;
   transition:font-size 0.1s;
+}
+
+#ballsDrawnRemaining {
+  width:193px;
+  height:44px;
+  font-size:25px;
+  background:rgba(179,162,199,0.67);
+  border:1.2px solid rgba(74,126,187,0.85);
+  border-radius:12px;
+  margin:9px auto 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  visibility:hidden;
+}
+
+#ballsDrawn {
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+#ballsRemaining {
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 
 #bingoB, #bingoI, #bingoN, #bingoG, #bingoO {
@@ -584,7 +610,7 @@ font-weight:700;
 }
 
 .bingoBallActiveB:hover, .bingoBallActiveI:hover, .bingoBallActiveN:hover, .bingoBallActiveG:hover, .bingoBallActiveO:hover {
-  opacity:1;
+  opacity:0.8;
 }
 
 .themeSelection {

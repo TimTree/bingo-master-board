@@ -7,6 +7,7 @@ let saveData = {
   themeColor: "classic",
   blockerEnabled: false,
   lastActionWasRemove: false,
+  ballsDrawnRemaining: "hidden",
   hiddenBingoLetters: []
 }
 
@@ -226,6 +227,7 @@ function activateBingoBall(bingoIDNum) {
     saveData.lastActionWasRemove = true;
     save();
 	}
+  updateBallStats();
 }
 
 function typeOfBingo(num) {
@@ -269,40 +271,38 @@ function loadBingoBall(bingoIDNum) {
   }
 }
 
-function randomDraw() {
-  let numberOfSlots = 0;
+function getBallsRemaining() {
   let numbersAvailable = [];
   for (let i = 1; i<=15;i+=1) {
     if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("B") === -1) {
-      numberOfSlots+=1;
       numbersAvailable.push(i);
     }
   }
   for (let i = 16; i<=30;i+=1) {
     if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("I") === -1) {
-      numberOfSlots+=1;
       numbersAvailable.push(i);
     }
   }
   for (let i = 31; i<=45;i+=1) {
     if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("N") === -1) {
-      numberOfSlots+=1;
       numbersAvailable.push(i);
     }
   }
   for (let i = 46; i<=60;i+=1) {
     if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("G") === -1) {
-      numberOfSlots+=1;
       numbersAvailable.push(i);
     }
   }
   for (let i = 61; i<=75;i+=1) {
     if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("O") === -1) {
-      numberOfSlots+=1;
       numbersAvailable.push(i);
     }
   }
-  if (numberOfSlots === 0) {
+  return numbersAvailable;
+}
+
+function randomDraw() {
+  if (getBallsRemaining().length === 0) {
     document.getElementById("drawBallDiv").style.transform = "rotate(15deg)";
     setTimeout(() => {
       document.getElementById("drawBallDiv").style.transform = "rotate(0deg)";
@@ -314,9 +314,15 @@ function randomDraw() {
       document.getElementById("drawBallDiv").style.transform = "scale(1)";
       document.getElementById("drawBallDiv").style.opacity = 1;
     },100)
-    let theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
+    let theRandomNumber = getBallsRemaining()[Math.floor(Math.random()*getBallsRemaining().length)];
     activateBingoBall(theRandomNumber);
   }
+}
+
+function updateBallStats() {
+  let ballsRemaining = getBallsRemaining().length;
+  document.getElementById("ballsDrawnNum").innerHTML = 75 - (saveData.hiddenBingoLetters.length*15) - ballsRemaining;
+  document.getElementById("ballsRemainingNum").innerHTML = ballsRemaining;
 }
 
 function hideBingo(bingoLetter, renderOrToggle) {
@@ -355,6 +361,7 @@ function hideBingo(bingoLetter, renderOrToggle) {
       saveData.hiddenBingoLetters.splice(saveData.hiddenBingoLetters.indexOf(bingoLetter), 1);
       save();
     }
+    updateBallStats();
   }
 
   else if (renderOrToggle === "render") {
@@ -376,6 +383,37 @@ function hideBingo(bingoLetter, renderOrToggle) {
     }
   }
 
+}
+
+function toggleBallsDrawnRemaining(renderOrToggle) {
+  if (renderOrToggle === "toggle") {
+    if (saveData.ballsDrawnRemaining === "hidden") {
+      document.getElementById("ballsDrawnRemaining").style.visibility = "visible";
+      document.getElementById("ballsDrawn").style.display = "flex";
+      saveData.ballsDrawnRemaining = "drawn";
+      save();
+    } else if (saveData.ballsDrawnRemaining === "drawn") {
+      document.getElementById("ballsDrawn").style.display = "none";
+      document.getElementById("ballsRemaining").style.display = "flex";
+      saveData.ballsDrawnRemaining = "remaining";
+      save();
+    } else {
+      document.getElementById("ballsRemaining").style.display = "none";
+      document.getElementById("ballsDrawnRemaining").style.visibility = "hidden";
+      saveData.ballsDrawnRemaining = "hidden";
+      save();
+    }
+  }
+  else if (renderOrToggle === "render") {
+    if (saveData.ballsDrawnRemaining === "hidden") {
+    } else if (saveData.ballsDrawnRemaining === "drawn") {
+      document.getElementById("ballsDrawnRemaining").style.visibility = "visible";
+      document.getElementById("ballsDrawn").style.display = "flex";
+    } else {
+      document.getElementById("ballsDrawnRemaining").style.visibility = "visible";
+      document.getElementById("ballsRemaining").style.display = "flex";
+    }
+  }
 }
 
 function resetBoard() {
@@ -419,6 +457,7 @@ function resetBoard() {
   saveData.lastActionWasRemove = false;
   save();
   hideBingo("", "reset");
+  updateBallStats();
 }
 
 function toggleBlocker() {
@@ -451,6 +490,8 @@ function setUpMasterBoard() {
   hideBingo("N", "render");
   hideBingo("G", "render");
   hideBingo("O", "render");
+  toggleBallsDrawnRemaining("render");
+  updateBallStats();
 }
 
 function setUpSettings(theColor) {
