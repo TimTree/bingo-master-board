@@ -6,12 +6,18 @@ let saveData = {
   drawnBingoBalls: [],
   themeColor: "classic",
   blockerEnabled: false,
-  lastActionWasRemove: false
+  lastActionWasRemove: false,
+  hiddenBingoLetters: []
 }
 
 if(typeof(localStorage) !== "undefined") {
   if (localStorage.getItem("bingoMasterBoardSaveData")) {
-    saveData = JSON.parse(localStorage.getItem("bingoMasterBoardSaveData"));
+    const parsedData = JSON.parse(localStorage.getItem("bingoMasterBoardSaveData"));
+    for (let i = 0; i < Object.keys(parsedData).length; i += 1) {
+      if (saveData.hasOwnProperty(Object.getOwnPropertyNames(parsedData)[i])) {
+        saveData[ Object.keys(saveData)[Object.keys(saveData).indexOf( Object.getOwnPropertyNames(parsedData)[i] )] ] = parsedData[ Object.keys(parsedData)[i]];
+      }
+    }
   }
 }
 
@@ -285,6 +291,16 @@ function randomDraw() {
       }
       let theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
       activateBingoBall(theRandomNumber);
+  }
+}
+
+function hideBingo(bingoLetter) {
+  if (saveData.hiddenBingoLetters.indexOf(bingoLetter) === -1) {
+    saveData.hiddenBingoLetters.push(bingoLetter);
+    save();
+  } else {
+    saveData.hiddenBingoLetters.splice(saveData.hiddenBingoLetters.indexOf(bingoLetter), 1);
+    save();
   }
 }
 

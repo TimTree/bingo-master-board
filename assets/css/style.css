@@ -393,6 +393,7 @@ margin:0.5em 0;
 
 .bingoLetter:hover {
   cursor:pointer;
+  color:#e24e53;
 }
 
 #blocker {
