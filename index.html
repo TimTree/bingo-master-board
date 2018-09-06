@@ -142,10 +142,10 @@
           <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>
         </div>
         <div class="bingoCol bCol">
-          <div class="bingoLetter" onclick="hideBingo('B');">
+          <div class="bingoLetter" onclick="hideBingo('B', 'toggle');">
             <div id="bingoB">B</div>
           </div>
-          <div class="bingoBalls">
+          <div class="bingoBalls" id="bingoBallsB">
             <div class="bingoBall" id="1bingo">1</div>
             <div class="bingoBall" id="2bingo">2</div>
             <div class="bingoBall" id="3bingo">3</div>
@@ -164,10 +164,10 @@
           </div>
         </div>
         <div class="bingoCol iCol">
-          <div class="bingoLetter" onclick="hideBingo('I');">
+          <div class="bingoLetter" onclick="hideBingo('I', 'toggle');">
             <div id="bingoI">I</div>
           </div>
-          <div class="bingoBalls">
+          <div class="bingoBalls" id="bingoBallsI">
             <div class="bingoBall" id="16bingo">16</div>
             <div class="bingoBall" id="17bingo">17</div>
             <div class="bingoBall" id="18bingo">18</div>
@@ -186,10 +186,10 @@
           </div>
         </div>
         <div class="bingoCol nCol">
-          <div class="bingoLetter" onclick="hideBingo('N');">
+          <div class="bingoLetter" onclick="hideBingo('N', 'toggle');">
             <div id="bingoN">N</div>
           </div>
-          <div class="bingoBalls">
+          <div class="bingoBalls" id="bingoBallsN">
             <div class="bingoBall" id="31bingo">31</div>
             <div class="bingoBall" id="32bingo">32</div>
             <div class="bingoBall" id="33bingo">33</div>
@@ -208,10 +208,10 @@
           </div>
         </div>
         <div class="bingoCol gCol">
-          <div class="bingoLetter" onclick="hideBingo('G');">
+          <div class="bingoLetter" onclick="hideBingo('G', 'toggle');">
             <div id="bingoG">G</div>
           </div>
-          <div class="bingoBalls">
+          <div class="bingoBalls" id="bingoBallsG">
             <div class="bingoBall" id="46bingo">46</div>
             <div class="bingoBall" id="47bingo">47</div>
             <div class="bingoBall" id="48bingo">48</div>
@@ -230,10 +230,10 @@
           </div>
         </div>
         <div class="bingoCol oCol">
-          <div class="bingoLetter" onclick="hideBingo('O');">
+          <div class="bingoLetter" onclick="hideBingo('O', 'toggle');">
             <div id="bingoO">O</div>
           </div>
-          <div class="bingoBalls">
+          <div class="bingoBalls" id="bingoBallsO">
             <div class="bingoBall" id="61bingo">61</div>
             <div class="bingoBall" id="62bingo">62</div>
             <div class="bingoBall" id="63bingo">63</div>

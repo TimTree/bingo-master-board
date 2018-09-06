@@ -396,6 +396,14 @@ margin:0.5em 0;
   color:#e24e53;
 }
 
+.bingoLetterGray {
+  color:#969696;
+}
+
+.bingoLetterGray:hover {
+  color:#808080;
+}
+
 #blocker {
   position:relative;
   width:1280px;

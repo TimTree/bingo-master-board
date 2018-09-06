@@ -15,7 +15,8 @@ if(typeof(localStorage) !== "undefined") {
     const parsedData = JSON.parse(localStorage.getItem("bingoMasterBoardSaveData"));
     for (let i = 0; i < Object.keys(parsedData).length; i += 1) {
       if (saveData.hasOwnProperty(Object.getOwnPropertyNames(parsedData)[i])) {
-        saveData[ Object.keys(saveData)[Object.keys(saveData).indexOf( Object.getOwnPropertyNames(parsedData)[i] )] ] = parsedData[ Object.keys(parsedData)[i]];
+        saveData[Object.keys(saveData)[Object.keys(saveData).indexOf(Object.getOwnPropertyNames(parsedData)[i])]]
+        = parsedData[Object.keys(parsedData)[i]];
       }
     }
   }
@@ -269,11 +270,43 @@ function loadBingoBall(bingoIDNum) {
 }
 
 function randomDraw() {
-  if (saveData.drawnBingoBalls.length === 75) {
+  let numberOfSlots = 0;
+  let numbersAvailable = [];
+  for (let i = 1; i<=15;i+=1) {
+    if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("B") === -1) {
+      numberOfSlots+=1;
+      numbersAvailable.push(i);
+    }
+  }
+  for (let i = 16; i<=30;i+=1) {
+    if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("I") === -1) {
+      numberOfSlots+=1;
+      numbersAvailable.push(i);
+    }
+  }
+  for (let i = 31; i<=45;i+=1) {
+    if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("N") === -1) {
+      numberOfSlots+=1;
+      numbersAvailable.push(i);
+    }
+  }
+  for (let i = 46; i<=60;i+=1) {
+    if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("G") === -1) {
+      numberOfSlots+=1;
+      numbersAvailable.push(i);
+    }
+  }
+  for (let i = 61; i<=75;i+=1) {
+    if (saveData.drawnBingoBalls.indexOf(i) === -1 && saveData.hiddenBingoLetters.indexOf("O") === -1) {
+      numberOfSlots+=1;
+      numbersAvailable.push(i);
+    }
+  }
+  if (numberOfSlots === 0) {
     document.getElementById("drawBallDiv").style.transform = "rotate(15deg)";
     setTimeout(() => {
       document.getElementById("drawBallDiv").style.transform = "rotate(0deg)";
-    },100)
+    },100);
   } else {
     document.getElementById("drawBallDiv").style.transform = "scale(0.9)";
     document.getElementById("drawBallDiv").style.opacity = 0.6;
@@ -281,27 +314,68 @@ function randomDraw() {
       document.getElementById("drawBallDiv").style.transform = "scale(1)";
       document.getElementById("drawBallDiv").style.opacity = 1;
     },100)
-      let numberOfSlots = 0;
-      let numbersAvailable = [];
-      for (let i = 1; i<=75;i+=1) {
-        if (saveData.drawnBingoBalls.indexOf(i) === -1) {
-          numberOfSlots+=1;
-          numbersAvailable.push(i);
-        }
-      }
-      let theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
-      activateBingoBall(theRandomNumber);
+    let theRandomNumber = numbersAvailable[Math.floor(Math.random()*numbersAvailable.length)];
+    activateBingoBall(theRandomNumber);
   }
 }
 
-function hideBingo(bingoLetter) {
-  if (saveData.hiddenBingoLetters.indexOf(bingoLetter) === -1) {
-    saveData.hiddenBingoLetters.push(bingoLetter);
-    save();
-  } else {
-    saveData.hiddenBingoLetters.splice(saveData.hiddenBingoLetters.indexOf(bingoLetter), 1);
-    save();
+function hideBingo(bingoLetter, renderOrToggle) {
+  let bingoLetterClass;
+  let bingoBallsClass;
+  if (bingoLetter === "B") {
+    bingoLetterClass = "bingoB";
+    bingoBallsClass = "bingoBallsB";
   }
+  else if (bingoLetter === "I") {
+    bingoLetterClass = "bingoI";
+    bingoBallsClass = "bingoBallsI";
+  }
+  else if (bingoLetter === "N") {
+    bingoLetterClass = "bingoN";
+    bingoBallsClass = "bingoBallsN";
+  }
+  else if (bingoLetter === "G") {
+    bingoLetterClass = "bingoG";
+    bingoBallsClass = "bingoBallsG";
+  }
+  else if (bingoLetter === "O") {
+    bingoLetterClass = "bingoO";
+    bingoBallsClass = "bingoBallsO";
+  }
+
+  if (renderOrToggle === "toggle") {
+    if (saveData.hiddenBingoLetters.indexOf(bingoLetter) === -1) {
+      document.getElementById(bingoLetterClass).classList.add("bingoLetterGray");
+      document.getElementById(bingoBallsClass).style.display = "none";
+      saveData.hiddenBingoLetters.push(bingoLetter);
+      save();
+    } else {
+      document.getElementById(bingoLetterClass).classList.remove("bingoLetterGray");
+      document.getElementById(bingoBallsClass).style.display = "block";
+      saveData.hiddenBingoLetters.splice(saveData.hiddenBingoLetters.indexOf(bingoLetter), 1);
+      save();
+    }
+  }
+
+  else if (renderOrToggle === "render") {
+    if (saveData.hiddenBingoLetters.indexOf(bingoLetter) === -1) {
+      document.getElementById(bingoLetterClass).classList.remove("bingoLetterGray");
+      document.getElementById(bingoBallsClass).style.display = "block";
+    } else {
+      document.getElementById(bingoLetterClass).classList.add("bingoLetterGray");
+      document.getElementById(bingoBallsClass).style.display = "none";
+    }
+  }
+
+  else if (renderOrToggle === "reset") {
+    saveData.hiddenBingoLetters = [];
+    save();
+    const letters = ['B', 'I', 'N', 'G', 'O'];
+    for (let i = 0; i< letters.length; i+=1) {
+      hideBingo(letters[i], "render");
+    }
+  }
+
 }
 
 function resetBoard() {
@@ -344,6 +418,7 @@ function resetBoard() {
   saveData.drawnBingoBalls = [];
   saveData.lastActionWasRemove = false;
   save();
+  hideBingo("", "reset");
 }
 
 function toggleBlocker() {
@@ -371,6 +446,11 @@ function setUpMasterBoard() {
   for (let i=0;i<saveData.drawnBingoBalls.length;i+=1) {
     loadBingoBall(saveData.drawnBingoBalls[i]);
   }
+  hideBingo("B", "render");
+  hideBingo("I", "render");
+  hideBingo("N", "render");
+  hideBingo("G", "render");
+  hideBingo("O", "render");
 }
 
 function setUpSettings(theColor) {
