@@ -464,11 +464,14 @@ function toggleBlocker() {
 	if (saveData.blockerEnabled === true) {
     saveData.blockerEnabled = false;
 		document.getElementById("blocker").style.left = 1287 + "px";
+    document.getElementById("showBoard").style.display = "none";
+    document.getElementById("hideBoard").style.display = "flex";
 	} else {
     saveData.blockerEnabled = true;
 		document.getElementById("blocker").style.left = 255 + "px";
+    document.getElementById("hideBoard").style.display = "none";
+    document.getElementById("showBoard").style.display = "flex";
 	}
-  setUpMasterBoard();
   save();
 }
 
