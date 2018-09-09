@@ -52,7 +52,7 @@ function init() {
 		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(i+1)});
 	}
   let param = location.search;
-  if (param == "?masterboard") {
+  if (param === "?masterboard") {
     setTimeout(() => {
       hide("titleSlide");
       show("fullScreenToggleLayer");

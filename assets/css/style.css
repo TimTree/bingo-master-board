@@ -574,7 +574,7 @@ margin:0.5em 0;
   color:#6b3205;
   opacity:1;
 font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(247, 182, 128,0.85), rgba(228,108,10,0.85));;
+  background:radial-gradient(circle at 31.5px 12px, rgba(247, 182, 128,0.85), rgba(228,108,10,0.85));
 }
 
 .bingoBallActiveI {
@@ -582,7 +582,7 @@ font-weight:700;
   color:#3e4f1f;
   opacity:1;
   font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(176, 204, 120,0.85), rgba(135, 170, 63,0.85));;
+  background:radial-gradient(circle at 31.5px 12px, rgba(176, 204, 120,0.85), rgba(135, 170, 63,0.85));
 }
 
 .bingoBallActiveN {
@@ -590,7 +590,7 @@ font-weight:700;
   color:#194551;
   opacity:1;
   font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(108, 201, 226,0.85), rgba(84, 165, 188,0.85));;
+  background:radial-gradient(circle at 31.5px 12px, rgba(108, 201, 226,0.85), rgba(84, 165, 188,0.85));
 }
 
 .bingoBallActiveG {
@@ -598,7 +598,7 @@ font-weight:700;
   color:#352944;
   opacity:1;
   font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(195, 164, 234,0.85), rgba(159, 129, 193,0.85));;
+  background:radial-gradient(circle at 31.5px 12px, rgba(195, 164, 234,0.85), rgba(159, 129, 193,0.85));
 }
 
 .bingoBallActiveO {
@@ -606,7 +606,7 @@ font-weight:700;
   color:#5e2221;
   opacity:1;
   font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(255, 138, 135,0.85), rgba(221, 98, 95,0.85));;
+  background:radial-gradient(circle at 31.5px 12px, rgba(255, 138, 135,0.85), rgba(221, 98, 95,0.85));
 }
 
 .bingoBallActiveB:hover, .bingoBallActiveI:hover, .bingoBallActiveN:hover, .bingoBallActiveG:hover, .bingoBallActiveO:hover {
