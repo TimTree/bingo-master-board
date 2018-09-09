@@ -1,6 +1,7 @@
 const fixedWidth = document.getElementById("area").offsetWidth;
 const fixedHeight = document.getElementById("area").offsetHeight;
 let isFullScreen = false;
+let loadedMasterBoard = false;
 
 let saveData = {
   drawnBingoBalls: [],
@@ -112,13 +113,16 @@ function show(elementName, display) {
 		document.getElementById("drawBallLayer").style.display = "block";
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
 		document.getElementById("homeButton").style.display = "block";
-    setUpMasterBoard();
-    	document.onkeydown = function(e) {
-    		if (e.keyCode == 32) {randomDraw();}
-    		if (e.keyCode == 82) {resetBoard();}
-        if (e.keyCode == 88) {toggleBlocker();}
-    	}
-
+    if (loadedMasterBoard === false) {
+      setUpMasterBoard();
+      console.log("done");
+      loadedMasterBoard = true;
+    }
+  	document.onkeydown = function(e) {
+  		if (e.keyCode == 32) {randomDraw();}
+  		if (e.keyCode == 82) {resetBoard();}
+      if (e.keyCode == 88) {toggleBlocker();}
+  	}
 	} else {
     document.onkeydown = function(e) {
     }
