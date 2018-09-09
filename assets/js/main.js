@@ -115,7 +115,6 @@ function show(elementName, display) {
 		document.getElementById("homeButton").style.display = "block";
     if (loadedMasterBoard === false) {
       setUpMasterBoard();
-      console.log("done");
       loadedMasterBoard = true;
     }
   	document.onkeydown = function(e) {
@@ -492,11 +491,9 @@ function setUpMasterBoard() {
   for (let i=0;i<saveData.drawnBingoBalls.length;i+=1) {
     loadBingoBall(saveData.drawnBingoBalls[i]);
   }
-  hideBingo("B", "render");
-  hideBingo("I", "render");
-  hideBingo("N", "render");
-  hideBingo("G", "render");
-  hideBingo("O", "render");
+  for (let i=0;i<saveData.hiddenBingoLetters.length;i+=1) {
+    hideBingo(saveData.hiddenBingoLetters[i], "render");
+  }
   toggleBallsDrawnRemaining("render");
   updateBallStats();
 }
