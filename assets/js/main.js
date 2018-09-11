@@ -303,18 +303,14 @@ function renderBingoStyle() {
   }
 }
 
-function change() {
-  if (saveData.bingoStyle === "vintage") {
-  saveData.bingoStyle = "ball";
+function changeBingoStyle(theStyle) {
+  saveData.bingoStyle = theStyle;
   save();
-} else {
-  saveData.bingoStyle = "vintage";
-  save();
-}
   renderBingoStyle();
   for (let i=0;i<saveData.drawnBingoBalls.length;i+=1) {
     loadBingoBall(saveData.drawnBingoBalls[i]);
   }
+  setUpSettings();
 }
 
 function getBallsRemaining() {
@@ -360,9 +356,25 @@ function randomDraw() {
       document.getElementById("drawBallDiv").style.transform = "scale(1)";
       document.getElementById("drawBallDiv").style.opacity = 1;
     },100)
-    let theRandomNumber = getBallsRemaining()[Math.floor(Math.random()*getBallsRemaining().length)];
+    let theRandomNumber = getBallsRemaining()[cryptoRandom(0,getBallsRemaining().length-1)];
     activateBingoBall(theRandomNumber);
   }
+}
+
+function cryptoRandom (min, max) {
+    // Create an unsigned 32-bit array, required for crypto.getRandomValues
+    // Unsigned 32-bit numbers range from 0 to 4,294,967,295.
+    // The 1 means we're going to generate one number.
+    const cryptoRandomSet = new Uint32Array(1);
+    // Generate a crypto-random number from 0 to 4,294,967,295.
+    window.crypto.getRandomValues(cryptoRandomSet);
+    // Convert the generated number to math.random() format.
+    // aka a number from 0-1 (including 0, but not 1)
+    // To get this, we divide the generated number by 4,294,967,295, plus 1.
+    // We need to add 1 to the denominator so we'll never get 1 as the result.
+    let cryptoRandomNumber = cryptoRandomSet[0] / (4294967295 + 1);
+    // Return the random integer based on prior math.random() logic
+    return Math.floor(cryptoRandomNumber * (max - min + 1)) + min;
 }
 
 function updateBallStats() {
@@ -542,27 +554,34 @@ function setUpMasterBoard() {
   updateBallStats();
 }
 
-function setUpSettings(theColor) {
+function setUpSettings() {
   document.getElementById("classic").style.backgroundColor = "";
   document.getElementById("red").style.backgroundColor = "";
   document.getElementById("green").style.backgroundColor = "";
   document.getElementById("blue").style.backgroundColor = "";
   document.getElementById("purple").style.backgroundColor = "";
-  if (theColor === "classic") {
+  document.getElementById("bingoStyleBall").style.backgroundColor = "";
+  document.getElementById("bingoStyleVintage").style.backgroundColor = "";
+  if (saveData.themeColor === "classic") {
     document.getElementById("classic").style.backgroundColor = "rgba(148,138,84,0.28)";
-  } else if (theColor === "red") {
+  } else if (saveData.themeColor === "red") {
     document.getElementById("red").style.backgroundColor = "rgba(255,0,0,0.2)";
-  } else if (theColor === "green") {
+  } else if (saveData.themeColor === "green") {
     document.getElementById("green").style.backgroundColor = "rgba(0,128,0,0.2)";
-  } else if (theColor === "blue") {
+  } else if (saveData.themeColor === "blue") {
     document.getElementById("blue").style.backgroundColor = "rgba(51,102,255,0.2)";
-  } else if (theColor === "purple") {
+  } else if (saveData.themeColor === "purple") {
     document.getElementById("purple").style.backgroundColor = "rgba(164,70,153,0.2)";
+  }
+  if (saveData.bingoStyle === "ball") {
+    document.getElementById("bingoStyleBall").style.backgroundColor = "rgba(0,0,0,0.15)";
+  } else if (saveData.bingoStyle === "vintage") {
+    document.getElementById("bingoStyleVintage").style.backgroundColor = "rgba(0,0,0,0.15)";
   }
 }
 
 function changeBackgroundColor(theColor) {
   saveData.themeColor = theColor;
   save();
-  setUpSettings(theColor);
+  setUpSettings();
 }

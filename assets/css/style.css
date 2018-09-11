@@ -650,8 +650,36 @@ color:gray;
   opacity:0.75;
 }
 
+#bingoStyleBall {
+  border-radius:12px;
+  transition: background-color 0.15s;
+  cursor:pointer;
+}
+
+#bingoStyleBall:hover {
+  background-color:rgba(0,0,0,0.05);
+}
+
+#bingoStyleBall:hover .bingoBallBall {
+  opacity:1;
+}
+
+#bingoStyleVintage {
+  border-radius:12px;
+  transition: background-color 0.15s;
+  cursor:pointer;
+}
+
+#bingoStyleVintage:hover {
+  background-color:rgba(0,0,0,0.05);
+}
+
+#bingoStyleVintage:hover .bingoBallVintage {
+  opacity:1;
+}
+
 .themeSelection {
-  font-size:46px;
+  font-size:38px;
   font-weight:700;
 }
 

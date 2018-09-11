@@ -79,7 +79,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-08 ~ ©2011-2018 Games by Tim<em></em></div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-10 ~ ©2011-2018 Games by Tim<em></em></div>
         </div>
       </div>
 
@@ -133,7 +133,6 @@
           <div style="margin:-6px 0 0 28px;">
             <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
-            <span class="smallButton" id="change" onclick="change();">Change</span>
           </div>
           <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
             <div id="bigBingoLetter">&nbsp;</div>
@@ -284,9 +283,18 @@
                 <span class="themeColor" id="red" onclick="changeBackgroundColor('red');">Red</span>
                 <span class="themeColor" id="green" onclick="changeBackgroundColor('green');">Green</span>
               </p>
-              <p class="themeSelection">
+              <p class="themeSelection" style="margin-bottom:1.5em;">
                 <span class="themeColor" id="blue" onclick="changeBackgroundColor('blue');">Blue</span>
                 <span class="themeColor" id="purple" onclick="changeBackgroundColor('purple');">Purple</span>
+              </p>
+              <p><strong>Bingo Numbers</strong></p>
+              <p style="display:flex;justify-content:center;">
+                <span id="bingoStyleBall" onclick="changeBingoStyle('ball');">
+                  <span class="bingoBallBall bingoBallBallActiveB">15</span>
+                </span>&nbsp;&nbsp;&nbsp;
+                <span id="bingoStyleVintage" onclick="changeBingoStyle('vintage');">
+                  <span class="bingoBallVintage bingoBallVintageActive">15</span>
+                </span>
               </p>
             </div>
           </div>
