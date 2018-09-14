@@ -2,6 +2,7 @@ const fixedWidth = document.getElementById("area").offsetWidth;
 const fixedHeight = document.getElementById("area").offsetHeight;
 let isFullScreen = false;
 let loadedMasterBoard = false;
+let keyPressed = false;
 
 let saveData = {
   drawnBingoBalls: [],
@@ -63,9 +64,12 @@ function init() {
   	},50);
   } else {
     setTimeout(() => {
+      show("fullScreenToggleLayer");
   		show("titleSlide");
-  		show("fullScreenToggleLayer");
   	},50);
+  }
+  document.onkeyup = function() {
+    keyPressed = false;
   }
 }
 
@@ -119,17 +123,61 @@ function show(elementName, display) {
       setUpMasterBoard();
       loadedMasterBoard = true;
     }
-  	document.onkeydown = function(e) {
-  		if (e.keyCode == 32) {randomDraw();}
-  		if (e.keyCode == 82) {resetBoard();}
-      if (e.keyCode == 88) {toggleBlocker();}
-  	}
-	} else {
     document.onkeydown = function(e) {
+      if(!keyPressed) {
+          keyPressed = true;
+          if (e.keyCode === 32) {randomDraw();}
+          else if (e.keyCode === 82) {resetBoard();}
+          else if (e.keyCode === 88) {toggleBlocker();}
+          else if (e.keyCode === 66) {hideBingo('B', 'toggle');}
+          else if (e.keyCode === 73) {hideBingo('I', 'toggle');}
+          else if (e.keyCode === 78) {hideBingo('N', 'toggle');}
+          else if (e.keyCode === 71) {hideBingo('G', 'toggle');}
+          else if (e.keyCode === 79) {hideBingo('O', 'toggle');}
+          else if (e.keyCode === 84) {hide('masterBoardSlide');show('settingsSlide', 'grid');}
+          else if (e.keyCode === 87) {hide('masterBoardSlide');show('winningPatternSlide', 'grid');}
+          else if (e.keyCode === 86) {toggleBallsDrawnRemaining('toggle');}
+          else if (e.keyCode === 72) {hide('masterBoardSlide');show('titleSlide');}
+          else if (e.keyCode === 70) {toggleFullScreen();}
+      }
+    }
+	}
+  else if (elementName === "settingsSlide") {
+    setUpSettings(saveData.themeColor);
+    document.onkeydown = function(e) {
+      if(!keyPressed) {
+          keyPressed = true;
+          if (e.keyCode === 84 || e.keyCode === 13) {hide('settingsSlide');show('masterBoardSlide', 'grid');}
+          else if (e.keyCode === 70) {toggleFullScreen();}
+      }
     }
   }
-  if (elementName === "settingsSlide") {
-    setUpSettings(saveData.themeColor);
+  else if (elementName === "winningPatternSlide") {
+    document.onkeydown = function(e) {
+      if(!keyPressed) {
+          keyPressed = true;
+          if (e.keyCode === 87 || e.keyCode === 13) {hide('settingsSlide');show('masterBoardSlide', 'grid');}
+          else if (e.keyCode === 70) {toggleFullScreen();}
+      }
+    }
+  }
+  else if (elementName === "titleSlide") {
+    document.onkeydown = function(e) {
+      if(!keyPressed) {
+          keyPressed = true;
+          if (e.keyCode === 13) {hide('titleSlide');show('masterBoardSlide', 'grid');}
+          else if (e.keyCode === 70) {toggleFullScreen();}
+      }
+    }
+  }
+  else {
+    document.onkeydown = function(e) {
+      console.log("hey1");
+      if(!keyPressed) {
+          keyPressed = true;
+          if (e.keyCode === 70) {toggleFullScreen();}
+      }
+    }
   }
 	setTimeout(() => {
 	  document.getElementById("fader").classList.remove("notransition");
