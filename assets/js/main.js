@@ -124,6 +124,7 @@ function show(elementName, display) {
       loadedMasterBoard = true;
     }
     document.onkeydown = function(e) {
+      e.preventDefault();
       if(!keyPressed) {
           keyPressed = true;
           if (e.keyCode === 32) {randomDraw();}
@@ -145,6 +146,7 @@ function show(elementName, display) {
   else if (elementName === "settingsSlide") {
     setUpSettings(saveData.themeColor);
     document.onkeydown = function(e) {
+      e.preventDefault();
       if(!keyPressed) {
           keyPressed = true;
           if (e.keyCode === 84 || e.keyCode === 13) {hide('settingsSlide');show('masterBoardSlide', 'grid');}
@@ -154,6 +156,7 @@ function show(elementName, display) {
   }
   else if (elementName === "winningPatternSlide") {
     document.onkeydown = function(e) {
+      e.preventDefault();
       if(!keyPressed) {
           keyPressed = true;
           if (e.keyCode === 87 || e.keyCode === 13) {hide('settingsSlide');show('masterBoardSlide', 'grid');}
@@ -163,6 +166,7 @@ function show(elementName, display) {
   }
   else if (elementName === "titleSlide") {
     document.onkeydown = function(e) {
+      e.preventDefault();
       if(!keyPressed) {
           keyPressed = true;
           if (e.keyCode === 13) {hide('titleSlide');show('masterBoardSlide', 'grid');}
@@ -172,7 +176,7 @@ function show(elementName, display) {
   }
   else {
     document.onkeydown = function(e) {
-      console.log("hey1");
+      e.preventDefault();
       if(!keyPressed) {
           keyPressed = true;
           if (e.keyCode === 70) {toggleFullScreen();}
