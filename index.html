@@ -4,7 +4,7 @@
     <title>Bingo Master Board</title>
   		<meta charset="UTF-8">
   		<meta name="description" content="Host a Bingo game using your Web browser">
-  		<meta name="author" content="Tim's Slideshow Games">
+  		<meta name="author" content="Games by Tim">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   		<link rel="shortcut icon" href="assets/img/favicon.ico" />
   		<meta name="format-detection" content="telephone=no">
@@ -79,7 +79,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-10 ~ ©2011-2018 Games by Tim<em></em></div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-14 ~ ©2011-2018 Games by Tim<em></em></div>
         </div>
       </div>
 
@@ -133,6 +133,40 @@
           <div style="margin:-6px 0 0 28px;">
             <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
+          </div>
+          <div class="winningPatternDiv">
+            <div class="bingoCard" onclick="hide('masterBoardSlide');show('winningPatternSlide', 'grid');">
+              <div class="bingoCardHeader">B</div>
+              <div class="bingoCardHeader">I</div>
+              <div class="bingoCardHeader">N</div>
+              <div class="bingoCardHeader">G</div>
+              <div class="bingoCardHeader">O</div>
+              <div class="bingoCardBody" id="1card"></div>
+              <div class="bingoCardBody" id="6card"></div>
+              <div class="bingoCardBody" id="11card"></div>
+              <div class="bingoCardBody" id="16card"></div>
+              <div class="bingoCardBody" id="21card"></div>
+              <div class="bingoCardBody" id="2card"></div>
+              <div class="bingoCardBody" id="7card"></div>
+              <div class="bingoCardBody" id="12card"></div>
+              <div class="bingoCardBody" id="17card"></div>
+              <div class="bingoCardBody" id="22card"></div>
+              <div class="bingoCardBody" id="3card"></div>
+              <div class="bingoCardBody" id="8card"></div>
+              <div class="bingoCardBody" id="13card"></div>
+              <div class="bingoCardBody" id="18card"></div>
+              <div class="bingoCardBody" id="23card"></div>
+              <div class="bingoCardBody" id="4card"></div>
+              <div class="bingoCardBody" id="9card"></div>
+              <div class="bingoCardBody" id="14card"></div>
+              <div class="bingoCardBody" id="19card"></div>
+              <div class="bingoCardBody" id="24card"></div>
+              <div class="bingoCardBody" id="5card"></div>
+              <div class="bingoCardBody" id="10card"></div>
+              <div class="bingoCardBody" id="15card"></div>
+              <div class="bingoCardBody" id="20card"></div>
+              <div class="bingoCardBody" id="25card"></div>
+            </div>
           </div>
           <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
             <div id="bigBingoLetter">&nbsp;</div>
@@ -301,6 +335,73 @@
         </div>
         <div class="helpFooter">
           <div class="helpFooterLabel" onclick="hide('settingsSlide');show('masterBoardSlide', 'grid');">
+            Go Back
+          </div>
+        </div>
+      </div>
+
+      <div id="winningPatternSlide">
+        <h2>Winning Pattern</h2>
+        <div class="helpContent">
+          <div class="flexCenter">
+            <div class="bigBingoCard">
+              <div class="bingoCardHeader bigBingoCardHeader">B</div>
+              <div class="bingoCardHeader bigBingoCardHeader">I</div>
+              <div class="bingoCardHeader bigBingoCardHeader">N</div>
+              <div class="bingoCardHeader bigBingoCardHeader">G</div>
+              <div class="bingoCardHeader bigBingoCardHeader">O</div>
+              <div class="bingoCardBody bigBingoCardBody" id="1bigcard" onclick="toggleWinningPattern(1);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="6bigcard" onclick="toggleWinningPattern(6);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="11bigcard" onclick="toggleWinningPattern(11);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="16bigcard" onclick="toggleWinningPattern(16);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="21bigcard" onclick="toggleWinningPattern(21);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="2bigcard" onclick="toggleWinningPattern(2);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="7bigcard" onclick="toggleWinningPattern(7);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="12bigcard" onclick="toggleWinningPattern(12);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="17bigcard" onclick="toggleWinningPattern(17);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="22bigcard" onclick="toggleWinningPattern(22);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="3bigcard" onclick="toggleWinningPattern(3);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="8bigcard" onclick="toggleWinningPattern(8);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="13bigcard" onclick="toggleWinningPattern(13);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="18bigcard" onclick="toggleWinningPattern(18);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="23bigcard" onclick="toggleWinningPattern(23);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="4bigcard" onclick="toggleWinningPattern(4);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="9bigcard" onclick="toggleWinningPattern(9);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="14bigcard" onclick="toggleWinningPattern(14);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="19bigcard" onclick="toggleWinningPattern(19);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="24bigcard" onclick="toggleWinningPattern(24);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="5bigcard" onclick="toggleWinningPattern(5);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="10bigcard" onclick="toggleWinningPattern(10);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="15bigcard" onclick="toggleWinningPattern(15);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="20bigcard" onclick="toggleWinningPattern(20);"></div>
+              <div class="bingoCardBody bigBingoCardBody" id="25bigcard" onclick="toggleWinningPattern(25);"></div>
+            </div>
+            <div>
+              <div class="winningPatternNames">
+                <div class="winningName" onclick="winningPatternFromName();">No Pattern</div>
+                <div class="winningName" onclick="winningPatternFromName(1,5,21,25);">Four Corners</div>
+                <div class="winningName" onclick="winningPatternFromName(5,7,8,9,10,12,13,14,15,17,18,19,20,25);">Top Hat</div>
+                <div class="winningName" onclick="winningPatternFromName(1,2,3,4,5,10,15,20,25);">Letter L</div>
+                <div class="winningName" onclick="winningPatternFromName(7,8,9,12,14,17,18,19);">Frame Inside</div>
+                <div class="winningName" onclick="winningPatternFromName(3,7,8,11,12,13,14,15,17,18,23);">Tree</div>
+                <div class="winningName" onclick="winningPatternFromName(1,6,11,12,13,14,15,16,21);">Letter T</div>
+                <div class="winningName" onclick="winningPatternFromName(1,2,3,4,5,6,10,11,15,16,20,21,22,23,24,25);">Frame Outside</div>
+                <div class="winningName" onclick="winningPatternFromName(1,2,3,8,11,13,14,15,18,21,22,23);">Field Goal</div>
+                <div class="winningName" onclick="winningPatternFromName(1,5,7,9,13,17,19,21,25);">Letter X</div>
+                <div class="winningName" onclick="winningPatternFromName(3,8,11,12,13,14,15,18,23);">Plus Sign</div>
+                <div class="winningName" onclick="winningPatternFromName(3,7,9,11,15,17,19,23);">Diamond</div>
+                <div class="winningName" onclick="winningPatternFromName(1,7,13,14,15,17,21);">Letter Y</div>
+                <div class="winningName" onclick="winningPatternFromName(1,5,6,9,11,13,16,17,21);">Lucky 7</div>
+                <div class="winningName" onclick="winningPatternFromName(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);">Blackout</div>
+              </div>
+              <div class="cardExplanation">
+                You can also click the Bingo tiles to form your own pattern.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="helpFooter">
+          <div class="helpFooterLabel" onclick="hideBingoLettersBasedOnWinningPattern();hide('winningPatternSlide');show('masterBoardSlide', 'grid');">
             Go Back
           </div>
         </div>

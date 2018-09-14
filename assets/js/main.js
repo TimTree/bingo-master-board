@@ -9,8 +9,9 @@ let saveData = {
   bingoStyle: "ball",
   blockerEnabled: false,
   lastActionWasRemove: false,
-  ballsDrawnRemaining: "hidden",
-  hiddenBingoLetters: []
+  ballsDrawnRemaining: "drawn",
+  hiddenBingoLetters: [],
+  winningPattern: []
 }
 
 if(typeof(localStorage) !== "undefined") {
@@ -515,6 +516,7 @@ function resetBoard() {
   saveData.lastActionWasRemove = false;
   save();
   hideBingo("", "reset");
+  clearWinningPattern();
   updateBallStats();
 }
 
@@ -550,6 +552,10 @@ function setUpMasterBoard() {
   for (let i=0;i<saveData.hiddenBingoLetters.length;i+=1) {
     hideBingo(saveData.hiddenBingoLetters[i], "render");
   }
+  for (let i=0;i<saveData.winningPattern.length;i+=1) {
+    document.getElementById(saveData.winningPattern[i] + "card").classList.add("bingoCardActive2");
+    document.getElementById(saveData.winningPattern[i] + "bigcard").classList.add("bingoCardActive");
+  }
   toggleBallsDrawnRemaining("render");
   updateBallStats();
 }
@@ -584,4 +590,74 @@ function changeBackgroundColor(theColor) {
   saveData.themeColor = theColor;
   save();
   setUpSettings();
+}
+
+function toggleWinningPattern(theNumber) {
+  let bingoID = theNumber + "bigcard";
+  let bingoID2 = theNumber + "card";
+  if (saveData.winningPattern.indexOf(theNumber) === -1) {
+    document.getElementById(bingoID).classList.add("bingoCardActive");
+    document.getElementById(bingoID2).classList.add("bingoCardActive2");
+    saveData.winningPattern.push(theNumber);
+  } else {
+    saveData.winningPattern.splice(saveData.winningPattern.indexOf(theNumber), 1);
+    document.getElementById(bingoID).classList.remove("bingoCardActive");
+    document.getElementById(bingoID2).classList.remove("bingoCardActive2");
+  }
+  save();
+}
+
+function winningPatternFromName() {
+  clearWinningPattern();
+  for (let i = 0; i < arguments.length; i+=1) {
+    toggleWinningPattern(arguments[i]);
+  }
+}
+
+function clearWinningPattern() {
+  for (let i=0;i<saveData.winningPattern.length;i+=1) {
+    document.getElementById(saveData.winningPattern[i] + "card").classList.remove("bingoCardActive2");
+    document.getElementById(saveData.winningPattern[i] + "bigcard").classList.remove("bingoCardActive");
+  }
+  saveData.winningPattern = [];
+  save();
+}
+
+function hideBingoLettersBasedOnWinningPattern() {
+  let bExists = false;
+  let iExists = false;
+  let nExists = false;
+  let gExists = false;
+  let oExists = false;
+  if (saveData.winningPattern.length > 0) {
+    for (let i=0;i<saveData.winningPattern.length;i+=1) {
+      if (saveData.winningPattern[i] <=5) {
+        bExists = true;
+      } else if (saveData.winningPattern[i] <=10) {
+        iExists = true;
+      } else if (saveData.winningPattern[i] <=15) {
+        nExists = true;
+      } else if (saveData.winningPattern[i] <=20) {
+        gExists = true;
+      } else if (saveData.winningPattern[i] <=25) {
+        oExists = true;
+      }
+    }
+    hideBingo("", "reset");
+    if (bExists === false) {
+      hideBingo('B', 'toggle');
+    }
+    if (iExists === false) {
+      hideBingo('I', 'toggle');
+    }
+    if (nExists === false) {
+      hideBingo('N', 'toggle');
+    }
+    if (gExists === false) {
+      hideBingo('G', 'toggle');
+    }
+    if (oExists === false) {
+      hideBingo('O', 'toggle');
+    }
+  }
 }
