@@ -85,18 +85,33 @@
 
       <div id="howToUseSlide">
         <h2>How to Use</h2>
-        <div class="helpNav">Main</div>
+        <div class="helpNav">
+          <div id="helpNavLine"></div>
+          <div class="helpNavText boldHelp" onclick="navHelp('Basics');" id="howToUseBasicsHeader">Basics</div>
+          <div class="helpNavText" onclick="navHelp('Basics 2');" id="howToUseBasics2Header">Basics 2</div>
+          <div class="helpNavText" onclick="navHelp('Tips & Tricks');" id="howToUseTipsTricksHeader">Tips & Tricks</div>
+          <div class="helpNavText" onclick="navHelp('Thank You');" id="howToUseThanksHeader">Thank You</div>
+        </div>
         <div class="helpLine"></div>
         <div class="helpContent">
-          <div class="flexCenter">
+          <div class="flexCenter" id="howToUseBasics" style="display:flex;">
             <div style="text-align:center;">
-              <p class="smallMargin">Bingo Master Board lets you host your own Bingo games.</p>
-              <p class="smallMargin">Randomly draw Bingo balls by clicking Draw Ball or pressing the space bar.</p>
-              <p class="smallMargin">You can also manually select Bingo balls by clicking on them.</p>
-              <p class="smallMargin">Clear the master board by clicking Reset or pressing the r key.</p>
-              <p class="smallMargin" style="margin-bottom:1.3em;">Add <em>?masterboard</em> to the end of the URL to instantly load the master board.</p>
-              <p class="smallMargin">Bingo Master Board is not yet finished.</p>
-              <p class="smallMargin">More features and better instructions will arrive in future updates.</p>
+              <p style="font-size:26px;"><strong>Bingo Master Board</strong> lets you host and manage your own Bingo games.</p>
+            </div>
+          </div>
+          <div class="flexCenter" id="howToUseBasics2">
+            <div style="text-align:center;">
+              <p style="font-size:26px;">More info here</p>
+            </div>
+          </div>
+          <div class="flexCenter" id="howToUseTipsTricks">
+            <div style="text-align:center;">
+              <p style="font-size:26px;">Tips and Tricks</p>
+            </div>
+          </div>
+          <div class="flexCenter" id="howToUseThanks">
+            <div style="text-align:center;">
+              <p style="font-size:26px;">Thank you so much!</p>
             </div>
           </div>
         </div>
@@ -109,14 +124,23 @@
 
       <div id="aboutCreditsSlide">
         <h2>About/Credits</h2>
-        <div class="helpNav">Main</div>
+        <div class="creditsNav">
+          <div id="creditsNavLine"></div>
+          <div class="creditsNavText boldHelp" onclick="creditsHelp('About');" id="creditsAboutHeader">About</div>
+          <div class="creditsNavText" onclick="creditsHelp('Credits');" id="creditsCreditsHeader">Credits</div>
+        </div>
         <div class="helpLine"></div>
         <div class="helpContent">
-          <div class="flexCenter">
+          <div class="flexCenter" id="creditsAbout" style="display:flex;">
             <div style="text-align:center;">
               <p class="smallMargin">Creator: Timothy Hsu (Games by Tim)</p>
               <p class="smallMargin"><em>This version was not made with CreateJS.</em></p>
               <p class="smallMargin">More info will appear in future updates.</p>
+            </div>
+          </div>
+          <div class="flexCenter" id="creditsCredits">
+            <div style="text-align:center;">
+              <p>Credits here</p>
             </div>
           </div>
         </div>

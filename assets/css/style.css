@@ -217,11 +217,48 @@ h2 {
 
 .helpNav {
   grid-area: helpNav;
-  border-top:2px solid black;
-  text-align:center;
-  font-size:24px;
-  width:200px;
+  font-size:0;
+  width:720px;
   margin:0 auto;
+  text-align:center;
+}
+
+.creditsNav {
+  grid-area: helpNav;
+  font-size:0;
+  width:360px;
+  margin:0 auto;
+  text-align:center;
+}
+
+#helpNavLine, #creditsNavLine {
+  border-top:3px solid black;
+  width:180px;
+  position:absolute;
+  transition:margin-left 0.5s;
+}
+
+.helpNavText, .creditsNavText {
+  height:41px;
+  width:180px;
+  font-size:24px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:color 0.15s;
+}
+
+.helpNavText:hover, .creditsNavText:hover {
+  cursor:pointer;
+  color:#16639a;
+}
+
+.boldHelp {
+  font-weight:700;
+}
+
+.boldHelp:hover {
+  color:#000;
 }
 
 .helpLine {
@@ -233,6 +270,10 @@ h2 {
 
 .helpContent {
   grid-area: helpContent;
+}
+
+#howToUseBasics2, #howToUseTipsTricks, #howToUseThanks, #creditsCredits {
+  display:none;
 }
 
 .helpFooter {

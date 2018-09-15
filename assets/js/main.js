@@ -174,6 +174,30 @@ function show(elementName, display) {
       }
     }
   }
+  else if (elementName === "howToUseSlide") {
+    document.onkeydown = function(e) {
+      if(!keyPressed) {
+        e.preventDefault();
+        keyPressed = true;
+        if (e.keyCode === 37) {keyboardNavHowToUse(0);}
+        else if (e.keyCode === 39) {keyboardNavHowToUse(1);}
+        else if (e.keyCode === 70) {toggleFullScreen();}
+        else if (e.keyCode === 13) {hide('howToUseSlide');show('titleSlide');}
+      }
+    }
+  }
+  else if (elementName === "aboutCreditsSlide") {
+    document.onkeydown = function(e) {
+      if(!keyPressed) {
+        e.preventDefault();
+        keyPressed = true;
+        if (e.keyCode === 37) {keyboardNavCredits(0);}
+        else if (e.keyCode === 39) {keyboardNavCredits(1);}
+        else if (e.keyCode === 70) {toggleFullScreen();}
+        else if (e.keyCode === 13) {hide('aboutCreditsSlide');show('titleSlide');}
+      }
+    }
+  }
   else {
     document.onkeydown = function(e) {
       if(!keyPressed) {
@@ -710,6 +734,104 @@ function hideBingoLettersBasedOnWinningPattern() {
     }
     if (oExists === false) {
       hideBingo('O', 'toggle');
+    }
+  }
+}
+
+function navHelp(sectionName) {
+  document.getElementById("howToUseBasics").style.display="none";
+  document.getElementById("howToUseBasicsHeader").classList.remove("boldHelp");
+  document.getElementById("howToUseBasics2").style.display="none";
+  document.getElementById("howToUseBasics2Header").classList.remove("boldHelp");
+  document.getElementById("howToUseTipsTricks").style.display="none";
+  document.getElementById("howToUseTipsTricksHeader").classList.remove("boldHelp");
+  document.getElementById("howToUseThanks").style.display="none";
+  document.getElementById("howToUseThanksHeader").classList.remove("boldHelp");
+
+  if (sectionName === "Basics") {
+    document.getElementById("howToUseBasics").style.display="flex";
+    document.getElementById("howToUseBasicsHeader").classList.add("boldHelp");
+    document.getElementById("helpNavLine").style.marginLeft = 0 + "px";
+  } else if (sectionName === "Basics 2") {
+    document.getElementById("howToUseBasics2").style.display="flex";
+    document.getElementById("howToUseBasics2Header").classList.add("boldHelp");
+    document.getElementById("helpNavLine").style.marginLeft = 180 + "px";
+  } else if (sectionName === "Tips & Tricks") {
+    document.getElementById("howToUseTipsTricks").style.display="flex";
+    document.getElementById("howToUseTipsTricksHeader").classList.add("boldHelp");
+    document.getElementById("helpNavLine").style.marginLeft = 360 + "px";
+  } else if (sectionName === "Thank You") {
+    document.getElementById("howToUseThanks").style.display="flex";
+    document.getElementById("howToUseThanksHeader").classList.add("boldHelp");
+    document.getElementById("helpNavLine").style.marginLeft = 540 + "px";
+  }
+}
+
+function keyboardNavHowToUse(leftOrRight) {
+  let currentSpot;
+  if (document.getElementById("howToUseBasics").style.display === "flex") {
+    currentSpot = "Basics";
+  } else if (document.getElementById("howToUseBasics2").style.display === "flex") {
+    currentSpot = "Basics 2";
+  } else if (document.getElementById("howToUseTipsTricks").style.display === "flex") {
+    currentSpot = "Tips & Tricks";
+  } else {
+    currentSpot = "Thank You";
+  }
+  if (currentSpot === "Basics") {
+    if (leftOrRight === 1) {
+      navHelp("Basics 2");
+    }
+  } else if (currentSpot === "Basics 2") {
+    if (leftOrRight === 0) {
+      navHelp("Basics");
+    } else {
+      navHelp("Tips & Tricks");
+    }
+  } else if (currentSpot === "Tips & Tricks") {
+    if (leftOrRight === 0) {
+      navHelp("Basics 2");
+    } else {
+      navHelp("Thank You");
+    }
+  } else if (currentSpot === "Thank You") {
+    if (leftOrRight === 0) {
+      navHelp("Tips & Tricks");
+    }
+  }
+}
+
+function creditsHelp(sectionName) {
+  document.getElementById("creditsAbout").style.display="none";
+  document.getElementById("creditsAboutHeader").classList.remove("boldHelp");
+  document.getElementById("creditsCredits").style.display="none";
+  document.getElementById("creditsCreditsHeader").classList.remove("boldHelp");
+
+  if (sectionName === "About") {
+    document.getElementById("creditsAbout").style.display="flex";
+    document.getElementById("creditsAboutHeader").classList.add("boldHelp");
+    document.getElementById("creditsNavLine").style.marginLeft = 0 + "px";
+  } else if (sectionName === "Credits") {
+    document.getElementById("creditsCredits").style.display="flex";
+    document.getElementById("creditsCreditsHeader").classList.add("boldHelp");
+    document.getElementById("creditsNavLine").style.marginLeft = 180 + "px";
+  }
+}
+
+function keyboardNavCredits(leftOrRight) {
+  let currentSpot;
+  if (document.getElementById("creditsAbout").style.display === "flex") {
+    currentSpot = "About";
+  } else {
+    currentSpot = "Credits";
+  }
+  if (currentSpot === "About") {
+    if (leftOrRight === 1) {
+      creditsHelp("Credits");
+    }
+  } else if (currentSpot === "Credits") {
+    if (leftOrRight === 0) {
+      creditsHelp("About");
     }
   }
 }
