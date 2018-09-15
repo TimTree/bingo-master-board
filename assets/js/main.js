@@ -159,7 +159,7 @@ function show(elementName, display) {
       if(!keyPressed) {
         e.preventDefault();
         keyPressed = true;
-        if (e.keyCode === 87 || e.keyCode === 13) {hide('settingsSlide');show('masterBoardSlide', 'grid');}
+        if (e.keyCode === 87 || e.keyCode === 13) {hideBingoLettersBasedOnWinningPattern();hide('winningPatternSlide');show('masterBoardSlide', 'grid');}
         else if (e.keyCode === 70) {toggleFullScreen();}
       }
     }
