@@ -71,6 +71,12 @@ function init() {
   document.onkeyup = function() {
     keyPressed = false;
   }
+  const img1 = new Image();
+  const img2 = new Image();
+  const img3 = new Image();
+  img1.src = "./assets/img/fullscreenUpHover.svg";
+  img2.src = "./assets/img/fullscreenDownHover.svg";
+  img3.src = "./assets/img/homeButtonHover.svg";
 }
 
 function resize() {
