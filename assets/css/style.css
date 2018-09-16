@@ -293,6 +293,24 @@ h2 {
   color:#4297b7;
 }
 
+.helpPointer {
+  position:absolute;
+  background-color: #4b63dc;
+  height:3px;
+  box-shadow:1px 1px 2.5px rgba(0,0,0,0.6);
+  border-radius:0 3px 3px 0;
+}
+
+.textLink {
+  text-decoration:underline;
+  cursor:pointer;
+  color:blue;
+}
+
+.textLink:active {
+  color:red;
+}
+
 #howToUse, #goToMasterBoard {
   display:inline-block;
   margin: 0 0.7em;
