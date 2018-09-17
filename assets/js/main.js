@@ -12,7 +12,8 @@ let saveData = {
   lastActionWasRemove: false,
   ballsDrawnRemaining: "drawn",
   hiddenBingoLetters: [],
-  winningPattern: []
+  winningPattern: [],
+  firstRun: 0
 }
 
 if(typeof(localStorage) !== "undefined") {
@@ -63,10 +64,20 @@ function init() {
   		show("masterBoardSlide", "grid");
   	},50);
   } else {
-    setTimeout(() => {
-      show("fullScreenToggleLayer");
-  		show("titleSlide");
-  	},50);
+    if (saveData.firstRun === 0) {
+      saveData.firstRun = 1;
+      save();
+      setTimeout(() => {
+        hide("titleSlide");
+        show("fullScreenToggleLayer");
+        show("onboardingSlide");
+      },50);
+    } else {
+      setTimeout(() => {
+        show("fullScreenToggleLayer");
+        show("titleSlide");
+      },50);
+    }
   }
   document.onkeyup = function() {
     keyPressed = false;

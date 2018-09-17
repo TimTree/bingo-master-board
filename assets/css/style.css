@@ -153,6 +153,11 @@ body {
                 "helpFooter";
 }
 
+#onboardingSlide {
+  display:none;
+  height:100%;
+}
+
 #masterBoardSlide {
   display:none;
   height:100%;
@@ -903,4 +908,11 @@ color:gray;
 
 .bingoCardActive:hover {
   background-color:#f14b3a;
+}
+
+.twoSections {
+  width:1000px;
+  height:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
 }

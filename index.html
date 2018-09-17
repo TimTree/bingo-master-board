@@ -2,17 +2,17 @@
 <html>
   <head>
     <title>Bingo Master Board</title>
-  		<meta charset="UTF-8">
-  		<meta name="description" content="Host a Bingo game using your Web browser">
-  		<meta name="author" content="Games by Tim">
-  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  		<link rel="shortcut icon" href="assets/img/favicon.ico" />
-  		<meta name="format-detection" content="telephone=no">
-  		<meta name="apple-mobile-web-app-title" content="Bingo Board">
-  		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/appIcon.png">
-  		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta charset="UTF-8">
+		<meta name="description" content="Host and manage Bingo games on the Web">
+		<meta name="author" content="Games by Tim">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<link rel="shortcut icon" href="assets/img/favicon.ico" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-title" content="Bingo Board">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/appIcon.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 
-      <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
   </head>
 
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-15-1 ~ ©2011-2018 Games by Tim</div>
+          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version Web WIP 2018-09-17 ~ ©2011-2018 Games by Tim ~ About/Credits</div>
         </div>
       </div>
 
@@ -179,10 +179,26 @@
         <div class="helpLine"></div>
         <div class="helpContent">
           <div class="flexCenter" id="creditsAbout" style="display:flex;">
-            <div style="text-align:center;">
-              <p class="smallMargin">Creator: Timothy Hsu (Games by Tim)</p>
-              <p class="smallMargin"><em>This version was not made with CreateJS.</em></p>
-              <p class="smallMargin">More info will appear in future updates.</p>
+            <div class="twoSections">
+              <div>
+                <div class="flexCenter" style="flex-direction:column;">
+                  <img src="./assets/img/appIcon.svg" width="300" style="box-shadow:5px 5px 10px rgba(0,0,0,0.25);border-radius:20px;">
+                  <p><em>Bingo Master Board</em></p>
+                </div>
+              </div>
+              <div>
+                <div class="flexCenter" style="flex-direction:column;font-size:24px;line-height:1.8;">
+                  <span style="margin-bottom:0.8em;font-size:26px;"><strong>Version tba</strong></span>
+                  <span><strong>Creator:</strong> Timothy Hsu</span>
+                  <span><strong>Released (PPT):</strong> Sept. 3, 2011</span>
+                  <span><strong>Released (Web):</strong> tba</span>
+                  <span><strong>License:</strong> <a href="./LICENSE" target="_blank">MIT</a></span>
+                  <span style="margin-top:0.8em;font-size:26px;"><a href="https://github.com/timtree/bingo-master-board" target="_blank">GitHub Repo</a>
+                  &nbsp;&nbsp;&nbsp;<a href="https://github.com/TimTree/bingo-master-board/releases" target="_blank">Release History</a></span>
+                  <span style="margin-top:0.8em;text-align:center;">For more projects by the creator, visit<br>
+                    <a href="https://www.gamesbytim.com" target="_blank"><strong>Games by Tim</strong></a>.</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="flexCenter" id="creditsCredits">
@@ -194,6 +210,22 @@
         <div class="helpFooter">
           <div class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
             Main Menu
+          </div>
+        </div>
+      </div>
+
+      <div id="onboardingSlide">
+        <div class="flexCenter" style="text-align:center;">
+          <div>
+            <h3 style="margin-top:0.5em;">Welcome to <span style="color:#ce181e;">Bingo</span> <span style="color:#948a54;">Master Board</span></h3>
+            <p class="smallMargin">
+              <img src="./assets/img/Onboarding.png" width="650">
+            </p>
+            <p class="smallMargin" style="font-size:24px;"><strong>Host and manage</strong> Bingo games.</p>
+            <p class="smallMargin" style="font-size:24px;"><strong>Randomly draw</strong> Bingo balls. <strong>Set your own</strong> winning pattern and look.</p>
+            <div class="helpFooterLabel" style="display:block;margin-top:1em;" onclick="hide('onboardingSlide');show('titleSlide');">
+              Begin
+            </div>
           </div>
         </div>
       </div>
