@@ -1,10 +1,15 @@
-<div style="text-align:center"><p><img src="./assets/img/BingoMasterBoard.svg" alt="Bingo Master Board" width="500"/></p>
-<p style="text-align:center;">
-[__https://timtree.github.io/bingo-master-board__](https://timtree.github.io/bingo-master-board)
+<p align="center">
+<img src="./assets/img/BingoMasterBoard.svg" alt="Bingo Master Board" width="560">
 </p>
-</div>
-<div style="text-align:center"><img src="./assets/img/BingoScreenshot1.png" alt="Bingo Master Board Screenshot" width="400"/></div>
-<br/>
+
+<p align="center">
+<a href="https://timtree.github.io/bingo-master-board"><strong>https://timtree.github.io/bingo-master-board</strong></a>
+</p>
+
+<p align="center">
+<img src="./assets/img/BingoScreenshot1.png" alt="Bingo Master Board Screenshot" width="420">
+</p>
+
 Bingo Master Board helps you host and manage your own Bingo games. You can:
 * Randomly draw and project Bingo balls
 * Display the amount of balls drawn or remaining
