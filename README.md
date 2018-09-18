@@ -36,7 +36,7 @@ Find other keyboard shortcuts in the __How to Use__ page.
 
 ## FAQ
 ### What is the best way to give feedback?
-For general feedback, you can leave a comment on my Website's project page. For bugs, see the next question.
+For general feedback, you can leave a comment on [my Website's project page](https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html). For bugs, see the next question.
 
 ### I found a bug!
 Great! Report the bug on [GitHub issues](https://github.com/timtree/bingo-master-board/issues), and I'll see what I can do to fix it. When reporting, let me know what browser you're using, and make sure someone else hasn't already reported the bug. Note that there may be bugs I can't fix if the bug is from the browser itself.
