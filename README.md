@@ -39,9 +39,9 @@ Find other keyboard shortcuts in the __How to Use__ page.
 For general feedback, you can leave a comment on [my Website's project page](https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html). For bugs, see the next question.
 
 ### I found a bug!
-Great! Report the bug on [GitHub issues](https://github.com/timtree/bingo-master-board/issues), and I'll see what I can do to fix it. When reporting, let me know what browser you're using, and make sure someone else hasn't already reported the bug. Note that there may be bugs I can't fix if the bug is from the browser itself.
+Great! Report the bug on [GitHub issues](https://github.com/TimTree/bingo-master-board/issues), and I'll see what I can do to fix it. When reporting, let me know what browser you're using, and make sure someone else hasn't already reported the bug. Note that there may be bugs I can't fix if the bug is from the browser itself.
 
-If you feel confident, you can [send a pull request](https://github.com/timtree/bingo-master-board/pulls) for bug fixes only. I've never dealt with a pull request before, so please bear with me if you do this. If I approve your pull request, you'll receive credit in the game's Credits page.
+If you feel confident, you can [send a pull request](https://github.com/TimTree/bingo-master-board/pulls) for bug fixes only. I've never dealt with a pull request before, so please bear with me if you do this. If I approve your pull request, you'll receive credit in the game's Credits page.
 
 ### Wasn't there a PowerPoint version of this?
 
@@ -59,8 +59,6 @@ There are multiple reasons for the switch, including, but not limited to, the fo
 * No downloads necessary. Just click the link to play.
 * No more worrying about macro security warnings
 * Ability to add features not possible with PowerPoint, like mouseover effects, keyboard shortcuts, and more.
-
-[*~Games by Tim*](https://www.gamesbytim.com)
 
 ## License
 Bingo Master Board is licensed under the MIT License.

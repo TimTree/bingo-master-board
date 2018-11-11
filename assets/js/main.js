@@ -16,7 +16,7 @@ let saveData = {
   firstRun: 0
 }
 
-if(typeof(localStorage) !== "undefined") {
+if(supportsLocalStorage) {
   if (localStorage.getItem("bingoMasterBoardSaveData")) {
     const parsedData = JSON.parse(localStorage.getItem("bingoMasterBoardSaveData"));
     for (let i = 0; i < Object.keys(parsedData).length; i += 1) {
@@ -28,20 +28,8 @@ if(typeof(localStorage) !== "undefined") {
   }
 }
 
-var isNotSafariPrivate = function() {
-  var doesItWork = 'test', storage = window.sessionStorage;
-  try {
-    storage.setItem(doesItWork, '1');
-    storage.removeItem(doesItWork);
-    return true;
-  }
-  catch (error) {
-    return false;
-  }
-}
-
 function save() {
-  if ( isNotSafariPrivate() ) {
+  if (supportsLocalStorage) {
     localStorage.setItem('bingoMasterBoardSaveData', JSON.stringify(saveData));
   }
 }
@@ -64,7 +52,7 @@ function init() {
   		show("masterBoardSlide", "grid");
   	},50);
   } else {
-    if (saveData.firstRun === 0) {
+    if (saveData.firstRun === 0 && supportsLocalStorage) {
       saveData.firstRun = 1;
       save();
       setTimeout(() => {
