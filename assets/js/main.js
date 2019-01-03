@@ -39,7 +39,6 @@ function init() {
 	window.addEventListener('resize', resize);
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
-	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 	const bingoBallClass = document.querySelectorAll(".bingoBall");
 	for (let i = 0; i < bingoBallClass.length; i+=1) {
 		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(i+1)});
@@ -100,7 +99,7 @@ function resize() {
 }
 
 function onFullScreenChange() {
-  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+  var fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement;
   if (fullscreenElement === null || fullscreenElement === undefined) {
     isFullScreen = false;
   } else {
@@ -231,20 +230,16 @@ function hide(elementName) {
 function toggleFullScreen(event) {
 	const canvas = document.body;
 	if (isFullScreen === false) {
-		if(canvas.requestFullScreen) {
-			canvas.requestFullScreen();
-		} else if(canvas.webkitRequestFullScreen) {
-			canvas.webkitRequestFullScreen();
-		} else if(canvas.mozRequestFullScreen) {
-			canvas.mozRequestFullScreen();
+		if(canvas.requestFullscreen) {
+			canvas.requestFullscreen();
+		} else if(canvas.webkitRequestFullscreen) {
+			canvas.webkitRequestFullscreen();
 		}
 		isFullScreen = true;
 	}
 	else if (isFullScreen === true) {
 		if(document.exitFullscreen) {
 	  		document.exitFullscreen();
-			} else if(document.mozCancelFullScreen) {
-	  		document.mozCancelFullScreen();
 			} else if(document.webkitExitFullscreen) {
 	  		document.webkitExitFullscreen();
 			}
