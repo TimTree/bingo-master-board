@@ -46,7 +46,7 @@ html {
 * {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;/
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;

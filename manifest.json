@@ -4,6 +4,8 @@
     "description": "Host and manage Bingo games on the Web",
     "start_url": "/",
     "display": "fullscreen",
+    "background_color": "#d1cc85",
+    "theme_color": "#d1cc85",
     "icons": [
       {
         "src": "./assets/img/appIcon192.png",
