@@ -1,0 +1,19 @@
+{
+    "name": "Bingo Master Board",
+    "short_name": "Bingo Board",
+    "description": "Host and manage Bingo games on the Web",
+    "start_url": "/",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "./assets/img/appIcon192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "./assets/img/appIcon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
