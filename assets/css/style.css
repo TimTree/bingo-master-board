@@ -80,7 +80,6 @@ body {
   height:720px;
   width:1280px;
   font-size:30px;
-  overflow:hidden;
 }
 
 #fader {
@@ -164,6 +163,7 @@ body {
   grid-template-columns:255px 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100%;
   grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
+  overflow:hidden;
 }
 
 #settingsSlide {
